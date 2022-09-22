@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Yourname"><title>CSS tips · Hexo</title><meta name="description" content="精灵图精灵图使用步骤：
+​    1 创建一个盒子，设置盒子的尺寸和小图尺寸相同
+​    2 将精灵图设置为盒子的背景图片
+​    3 修改背景图位置
+​     通过pxcood 测量小图片左上角坐标， 分别取负值设置给盒子的 background-position : x y
+过渡 作用：让"><meta name="keywords" content="Blog,博客,Hexo"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:220px;" alt="favicon"><h3 title=""><a href="/">Hexo</a></h3><div class="description"><p>A simple and beautiful blog</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Lhcfl"><i class="fa fa-github"></i></a></li><li><a href="mailto:yourname@example.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://zhihu.com/people/jin-xin-4-68"><i class="fa fa-mortar-board"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 全站CC-BY-SA-3.0 </span><i class="fa fa-star"></i><span> Yourname</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>CSS tips</a></h3></div><div class="post-content"><p><h3 id="精灵图"><a href="#精灵图" class="headerlink" title="精灵图"></a>精灵图</h3><p><strong>精灵图使用步骤：</strong></p>
+<p>​    1 创建一个盒子，设置盒子的尺寸和小图尺寸相同</p>
+<p>​    2 将精灵图设置为盒子的背景图片</p>
+<p>​    3 修改背景图位置</p>
+<p>​     通过pxcood 测量小图片左上角坐标， 分别取负值设置给盒子的 background-position : x y</p>
+<h3 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h3><p> <strong>作用：</strong>让元素的样式慢慢的变化，常配合hover使用，增强网页交互体验</p>
+<p> <strong>属性名</strong>： transition</p>
+<p>  <strong>常见取值：</strong></p>
+<p>​    过渡的属性 – all（所有能过渡的属性都过渡、具体属性名如：width：只有width有过度）</p>
+<p>​    过渡的时长 – 数字+s</p>
+<p>  <strong>注意点：</strong></p>
+<p>​    过渡需要：默认状态和hover状态样式不同，才能有过渡效果</p>
+<p>​    transition属性给需要过渡的元素本身加</p>
+<p>​    transition属性设置在不同状态中，效果不同</p>
+<p>​      1 给默认状态设置，鼠标移入移出都有过渡效果</p>
+<p>​      2 给hover状态设置，鼠标移入有过渡效果，移出没有过渡效果</p>
+<h3 id="文件和目录准备"><a href="#文件和目录准备" class="headerlink" title="文件和目录准备"></a>文件和目录准备</h3><ul>
+<li>新建项目文件夹 <strong>项目名(英文)-pc-client</strong>，在VScode中打开<ul>
+<li>在实际开发中，项目文件夹不建议使用中文</li>
+<li>所有项目相关文件都保存在<strong>项目名(英文)-pc-client</strong>目录中</li>
+</ul>
+</li>
+<li>复制favicon.ico (网页标题图标)到<strong>项目名(英文)-pc-client</strong>目录<ul>
+<li>一般习惯将ico图标放在项目根目录</li>
+</ul>
+</li>
+<li>复制 <strong>image</strong> 和 <strong>uploads</strong>目录到<strong>项目名(英文)-pc-client</strong>目录中<ul>
+<li>image：存放网站固定使用的图片素材，如：logo、样式修饰图片等等</li>
+<li>uploads： 存放网站非固定使用的图片素材，如：商品图片、宣传图片等</li>
+</ul>
+</li>
+<li>新建 index.html 在根目录</li>
+<li>新建css文件夹保存网站的样式，并新建以下css文件：<ul>
+<li>base.css: 基础公共样式</li>
+<li>common.css: 该网站中多个网页相同模块的重复样式，如：头部、底部</li>
+<li>index.css：首页样式</li>
+</ul>
+</li>
+</ul>
+</p><div class="tip">本文采用CC-BY-SA-3.0协议，转载请注明出处<br>Author: Yourname</div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-09-21</span><span class="leancloud_visitors"></span><span>About 535 words, 1 min 47 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2022/09/21/CSS-tips/,Hexo,CSS tips,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2022/09/21/%E6%9D%A8%E7%90%B3%E7%90%B3/" title="杨琳琳">Previous</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2022/09/21/hello-world/" title="Hello World">Next</a></li></ul></div><script src="/js/visitors.js"></script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
