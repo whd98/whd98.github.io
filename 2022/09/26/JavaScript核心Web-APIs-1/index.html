@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="WHD"><title>JavaScript核心Web APIs[1] · 藤原拓海</title><meta name="description" content="Web APIs
+Web APIs是W3C组织的标准
+Web APIs 主要学习DOM 和 BOM
+Web APIs 是JS所独有的部分
+主要学习页面交互功能
+需要JS基础
+
+APIAPI 是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码。
+"><meta name="keywords" content="Blog,博客,Hexo"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:220px;" alt="favicon"><h3 title=""><a href="/">藤原拓海</a></h3><div class="description"><p>等到放晴的那天也许我会比较好一点</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Lhcfl"><i class="fa fa-github"></i></a></li><li><a href="mailto:yourname@example.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://zhihu.com/people/jin-xin-4-68"><i class="fa fa-mortar-board"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 但故事最后你好像还是说了 拜 </span><i class="fa fa-star"></i><span> WHD</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>JavaScript核心Web APIs[1]</a></h3></div><div class="post-content"><p><h3 id="Web-APIs"><a href="#Web-APIs" class="headerlink" title="Web APIs"></a>Web APIs</h3><ul>
+<li>Web APIs是W3C组织的标准</li>
+<li>Web APIs 主要学习DOM 和 BOM</li>
+<li>Web APIs 是JS所独有的部分</li>
+<li>主要学习页面交互功能</li>
+<li>需要JS基础</li>
+</ul>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p>API 是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码。</p>
+<h3 id="Web-API"><a href="#Web-API" class="headerlink" title="Web API"></a>Web API</h3><p>web API 是浏览器提供的一套操作浏览器功能和页面元素的API（BOM 和 DOM）。</p>
+<h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p>文档对象模型 （Document Object Model， 简称DOM）， 是W3C组织推荐的处理可扩展标记语言（HTML 或者 XML） 的标准编程接口。</p>
+<ul>
+<li><p><strong>DOM树</strong></p>
+<p><img src="https://pic3.zhimg.com/80/v2-69d53b19c03ddc8bd3bc047f328de929_720w.jpg?source=1940ef5c" alt="img"></p>
+<p>文档：一个页面一个文档，DOM使用document表示</p>
+<p>元素：页面中的所有标签都是元素，DOM中使用element表示</p>
+<p>节点： 网页中所有内容都是节点（标签、属性、文本、注释等），DOM中使用node表示</p>
+<p><strong>以上内容都看作对象</strong></p>
+</li>
+<li><p><strong>获取元素</strong></p>
+<ul>
+<li><p><strong>根据ID获取</strong></p>
+<ul>
+<li><p>使用 getElementById() 方法获取</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document"><code>Document</code></a>的方法 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/getElementById"><code>getElementById()</code></a>返回一个匹配特定 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/id">ID</a>的元素。由于元素的 ID 在大部分情况下要求是独一无二的，这个方法自然而然地成为了一个高效查找特定元素的方法。</p>
+<p>如果需要查找到那些没有 ID 的元素，你可以考虑通过 CSS 选择器使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/querySelector"><code>querySelector()</code></a>。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var element = document.getElementById(id);</span><br></pre></td></tr></table></figure>
+
+<p>Copy to Clipboard</p>
+<p><strong>参数</strong></p>
+<ul>
+<li>**<code>element</code>**是一个 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element">Element</a> 对象。如果当前文档中拥有特定 ID 的元素不存在则返回 null.</li>
+<li>**<code>id</code>**是大小写敏感的字符串，代表了所要查找的元素的唯一 ID.</li>
+</ul>
+<p><strong>返回值</strong></p>
+<p>返回一个匹配到 ID 的 DOM <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element"><code>Element</code></a> 对象。若在当前 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document"><code>Document</code></a> 下没有找到，则返回 null。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>根据标签名获取</strong></p>
+<ul>
+<li><p>使用getElementsTagName()方法返回带有指定标签名的对象的集合（以伪数组的形式存储）。</p>
+</li>
+<li><p>获取某个元素（父元素）内部所有指定标签名的子元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;标签名&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>注意：父元素必须是单个对象（必须指明是哪一个元素对象）。获取的时候不包括父元素自己</p>
+</li>
+<li></li>
+</ul>
+</li>
+<li><p><strong>通过HTML5新增的方法获取</strong></p>
+<ul>
+<li><pre><code class="javascript">document.getElementsByClassName(&#39;类名&#39;);// 根据类名返回元素对象集合
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```javascript</span><br><span class="line">  document.querySelector(&quot;.类名&quot;); // 返回指定选择器的第一个元素对象</span><br><span class="line">  // . 类名</span><br><span class="line">  // # id名</span><br><span class="line">  element = document.querySelector(selectors);</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><pre><code class="javascript">document.querySelectorAll(&quot;&quot;); //返回指定选择器的所有对象的集合
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **特殊元素获取**</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    document.body; \\获取body</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><pre><code class="javascript">document.documentElement; \\获取html
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ​	**事件基础**</span><br><span class="line"></span><br><span class="line">  - 事件是可被 JS 检测到的行为</span><br><span class="line">  - 事件三部分： 事件源 事件类型 事件处理程序</span><br><span class="line">    - 事件源： 事件被触发的对象   按钮</span><br><span class="line">    - 事件类型： 如何触发 什么事件 </span><br><span class="line">    - 事件处理程序 ： 通过一个函数赋值的方式完成</span><br><span class="line">  - 执行事件的步骤</span><br><span class="line">    - 获取事件源</span><br><span class="line">    - 注册事件（绑定事件）</span><br><span class="line">    - 添加事件处理程序（采取函数赋值形式）</span><br><span class="line"></span><br><span class="line">- **操作元素**</span><br><span class="line"></span><br><span class="line">  - 改变元素内容</span><br><span class="line"></span><br><span class="line">    - ```javascript</span><br><span class="line">      //从起始位置到终止位置的内容，但它去除html标签，同时空格和换行也会去掉</span><br><span class="line">      element.innerText</span><br><span class="line">      </span><br><span class="line">      //起始位置到终止位置的全部内容，包括html标签，同时保留空格和换行</span><br><span class="line">      element.innerHTML</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>innerText <strong>不识别html的标签</strong> （非标准）</p>
+</li>
+<li><p>innerHTML <strong>识别html标签</strong> （w3c 标准）</p>
+</li>
+<li><p>以上可以获取标签内容</p>
+<ul>
+<li><p>&#96;&#96;&#96;javascript<br>事件源.innerText; &#x2F;&#x2F; 会去除空格和换行</p>
+<p>事件源.innerHTML; &#x2F;&#x2F; 不去除换行和空格</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 改变表单元素的属性操作</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    事件元素.属性 = &quot;修改后的&quot;；</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>利用DOM可以操作如下表单元素的属性：</p>
+<ul>
+<li>type、value、checked、selected、disableJad</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p><div class="tip">本文采用CC-BY-SA-3.0协议，转载请注明出处<br>Author: WHD</div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-09-26</span><i class="fa fa-tag"></i><a class="tag" href="/tags/JS/" title="JS">JS </a><span class="leancloud_visitors"></span><span>About 1006 words, 3 min 21 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2022/09/26/JavaScript核心Web-APIs-1/,藤原拓海,JavaScript核心Web APIs[1],;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2022/09/23/JavaScript%E6%A0%B8%E5%BF%83Web%C2%A0APIs/" title="">Next</a></li></ul></div><script src="/js/visitors.js"></script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
