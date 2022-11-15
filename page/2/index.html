@@ -1,4 +1,203 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="WHD"><title>藤原拓海</title><meta name="description" content="等到放晴的那天也许我会比较好一点"><meta name="keywords" content="Blog,博客,Hexo"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:220px;" alt="favicon"><h3 title=""><a href="/">藤原拓海</a></h3><div class="description"><p>等到放晴的那天也许我会比较好一点</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Lhcfl"><i class="fa fa-github"></i></a></li><li><a href="mailto:yourname@example.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://zhihu.com/people/jin-xin-4-68"><i class="fa fa-mortar-board"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 但故事最后你好像还是说了 拜 </span><i class="fa fa-star"></i><span> WHD</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/09/30/%E5%9B%9E%E6%B5%81-%E9%87%8D%E7%BB%98-%EF%BC%88Reflow-Repaint%EF%BC%89/">回流 &amp; 重绘 （Reflow &amp; Repaint）</a></h3></div><div class="post-content"><div class="card"><p><h3 id="相关知识点"><a href="#相关知识点" class="headerlink" title="相关知识点"></a>相关知识点</h3><h6 id="1、浏览器使用流式布局模型（Flow-Based-Layout）"><a href="#1、浏览器使用流式布局模型（Flow-Based-Layout）" class="headerlink" title="1、浏览器使用流式布局模型（Flow Based Layout）"></a>1、浏览器使用流式布局模型（Flow Based Layout）</h6><p>网页布局中包括:<strong>静态布局</strong>，<strong>流式布局</strong>，<strong>响应式布局</strong>和<strong>弹性布局</strong>几种情况。</p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="WHD"><title>藤原拓海</title><meta name="description" content="等到放晴的那天也许我会比较好一点"><meta name="keywords" content="Blog,博客,Hexo"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:220px;" alt="favicon"><h3 title=""><a href="/">藤原拓海</a></h3><div class="description"><p>等到放晴的那天也许我会比较好一点</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Lhcfl"><i class="fa fa-github"></i></a></li><li><a href="mailto:yourname@example.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://zhihu.com/people/jin-xin-4-68"><i class="fa fa-mortar-board"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 但故事最后你好像还是说了 拜 </span><i class="fa fa-star"></i><span> WHD</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/10/07/JavaScript%E6%A0%B8%E5%BF%83DOM-2/">DOM事件流</a></h3></div><div class="post-content"><div class="card"><p><h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p>文档对象模型 （Document Object Model， 简称DOM）， 是W3C组织推荐的处理可扩展标记语言（HTML 或者 XML） 的标准编程接口。</p>
+<ul>
+<li><p><strong>DOM树</strong></p>
+<p><img src="https://pic3.zhimg.com/80/v2-69d53b19c03ddc8bd3bc047f328de929_720w.jpg?source=1940ef5c" alt="img"></p>
+<p>文档：一个页面一个文档，DOM使用document表示</p>
+<p>元素：页面中的所有标签都是元素，DOM中使用element表示</p>
+<p>节点： 网页中所有内容都是节点（标签、属性、文本、注释等），DOM中使用node表示</p>
+<p><strong>以上内容都看作对象</strong></p>
+</li>
+<li><p><strong>获取元素</strong></p>
+<ul>
+<li><p><strong>根据ID获取</strong></p>
+<ul>
+<li><p>使用 getElementById() 方法获取</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document"><code>Document</code></a>的方法 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/getElementById"><code>getElementById()</code></a>返回一个匹配特定 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/id">ID</a>的元素。由于元素的 ID 在大部分情况下要求是独一无二的，这个方法自然而然地成为了一个高效查找特定元素的方法。</p>
+<p>如果需要查找到那些没有 ID 的元素，你可以考虑通过 CSS 选择器使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/querySelector"><code>querySelector()</code></a>。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var element = document.getElementById(id);</span><br></pre></td></tr></table></figure>
+
+<p>Copy to Clipboard</p>
+<p><strong>参数</strong></p>
+<ul>
+<li>**<code>element</code>**是一个 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element">Element</a> 对象。如果当前文档中拥有特定 ID 的元素不存在则返回 null.</li>
+<li>**<code>id</code>**是大小写敏感的字符串，代表了所要查找的元素的唯一 ID.</li>
+</ul>
+<p><strong>返回值</strong></p>
+<p>返回一个匹配到 ID 的 DOM <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element"><code>Element</code></a> 对象。若在当前 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document"><code>Document</code></a> 下没有找到，则返回 null。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>根据标签名获取</strong></p>
+<ul>
+<li><p>使用getElementsTagName()方法返回带有指定标签名的对象的集合（以伪数组的形式存储）。</p>
+</li>
+<li><p>获取某个元素（父元素）内部所有指定标签名的子元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;标签名&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>注意：父元素必须是单个对象（必须指明是哪一个元素对象）。获取的时候不包括父元素自己</p>
+</li>
+<li></li>
+</ul>
+</li>
+<li><p><strong>通过HTML5新增的方法获取</strong></p>
+<ul>
+<li><pre><code class="javascript">document.getElementsByClassName(&#39;类名&#39;);// 根据类名返回元素对象集合
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```javascript</span><br><span class="line">  document.querySelector(&quot;.类名&quot;); // 返回指定选择器的第一个元素对象</span><br><span class="line">  // . 类名</span><br><span class="line">  // # id名</span><br><span class="line">  element = document.querySelector(selectors);</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><pre><code class="javascript">document.querySelectorAll(&quot;&quot;); //返回指定选择器的所有对象的集合
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **特殊元素获取**</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    document.body; \\获取body</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><pre><code class="javascript">document.documentElement; \\获取html
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ​	**事件基础**</span><br><span class="line"></span><br><span class="line">  - 事件是可被 JS 检测到的行为</span><br><span class="line">  - 事件三部分： 事件源 事件类型 事件处理程序</span><br><span class="line">    - 事件源： 事件被触发的对象   按钮</span><br><span class="line">    - 事件类型： 如何触发 什么事件 </span><br><span class="line">    - 事件处理程序 ： 通过一个函数赋值的方式完成</span><br><span class="line">  - 执行事件的步骤</span><br><span class="line">    - 获取事件源</span><br><span class="line">    - 注册事件（绑定事件）</span><br><span class="line">    - 添加事件处理程序（采取函数赋值形式）</span><br><span class="line"></span><br><span class="line">- **操作元素**</span><br><span class="line"></span><br><span class="line">  - 改变元素内容</span><br><span class="line"></span><br><span class="line">    - ```javascript</span><br><span class="line">      //从起始位置到终止位置的内容，但它去除html标签，同时空格和换行也会去掉</span><br><span class="line">      element.innerText</span><br><span class="line">      </span><br><span class="line">      //起始位置到终止位置的全部内容，包括html标签，同时保留空格和换行</span><br><span class="line">      element.innerHTML</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>innerText <strong>不识别html的标签</strong> （非标准）</p>
+</li>
+<li><p>innerHTML <strong>识别html标签</strong> （w3c 标准）</p>
+</li>
+<li><p>以上可以获取标签内容</p>
+<ul>
+<li><p>&#96;&#96;&#96;javascript<br>事件源.innerText; &#x2F;&#x2F; 会去除空格和换行</p>
+<p>事件源.innerHTML; &#x2F;&#x2F; 不去除换行和空格</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 改变表单元素的属性操作</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    事件元素.属性 = &quot;修改后的&quot;；</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>利用DOM可以操作如下表单元素的属性：</p>
+<ul>
+<li>type、value、checked、selected、disableJad</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>修改样式属性（修改CSS）</p>
+<ul>
+<li><p>通过JS修改元素的大小、颜色、位置等样式</p>
+</li>
+<li><p>&#96;&#96;&#96;javascript<br>element.style  \行内样式操作<br>element.className \类名样式操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 如果样式修改较多，可以采取操作类名方式更改元素样式</span><br><span class="line"></span><br><span class="line">- class因为是个保留字，因此使用className来操作元素类名属性</span><br><span class="line"></span><br><span class="line">- className会直接更改元素的类名，会覆盖原先的类名</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    如果想要保留原先类名</span><br><span class="line">    this.className = &#x27;原先类名 新类名&#x27;；</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>排他思想</p>
+<ul>
+<li>如果有同一组元素，我们想要某一个元素实现某种样式，需要用到循环的排他思想算法：<ul>
+<li>所有元素全部清除样式</li>
+<li>给当前元素设置样式</li>
+<li>注意顺序不能颠倒，首先干掉其他人，再设置自己</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>自定义属性的操作</p>
+<ul>
+<li><p>获取元素</p>
+<ul>
+<li><pre><code class="javascript">element.属性
+
+element.getAttribute(&#39;属性&#39;)  
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 两者区别</span><br><span class="line"></span><br><span class="line">    - element.属性 获取内置属性值（元素本身自带的属性）</span><br><span class="line">    - element.getAttribute(&#x27;属性&#x27;)  主要获得自定义属性（标准）</span><br><span class="line"></span><br><span class="line">- 设置属性值</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    element.属性 = &#x27;value&#x27;;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>&#96;&#96;&#96;javascript<br>element.setAttribute(‘属性’， ‘value’);</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 主要目的</span><br><span class="line"></span><br><span class="line">  - 为了保存并使用数据。有些数据可以保存到页面中不需要保存到数据库中。</span><br><span class="line"></span><br><span class="line">- 设置H5自定义属性</span><br><span class="line"></span><br><span class="line">  - H5规定自定义属性data-开头作为属性名并且赋值</span><br><span class="line"></span><br><span class="line">- H5新增的获取自定义属性的方法</span><br><span class="line"></span><br><span class="line">  ```javascript</span><br><span class="line">  document.dataset.属性名称；</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>如果自定义属性有多个 ’-‘ 链接的单词，获取时采取驼峰命名法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data-list-name</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">dataset</span>[<span class="string">&#x27;listName&#x27;</span>]);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>节点操作</p>
+<ul>
+<li><p>利用节点层级关系获取元素</p>
+<ul>
+<li>利用父子兄节点关系获取元素</li>
+<li>逻辑性强，但是兼容性稍差</li>
+</ul>
+</li>
+<li><p>一般来说，节点至少有nodeName（节点名称）、nodeType（节点类型）、nodeValue（节点值）三个基本属性</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>元素节点</th>
+<th align="center">节点类型取值（nodeType）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>元素element</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td>属性attr</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td>文本text</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td>注释comments</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td>文档document</td>
+<td align="center">9</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>注册事件概述</p>
+<ul>
+<li><p>给元素添加事件，称为<strong>注册事件</strong>或者<strong>绑定事件</strong></p>
+</li>
+<li><p>注册事件有两种方式： 传统方式  和  方法监听注册事件</p>
+</li>
+<li><p>传统注册方式 ： 利用on开头的事件（onclick）</p>
+<p>特点：注册事件的唯一性，同一个元素同一个事件只能处理一个函数，最后注册的处理函数将会覆盖前面注册的处理函数</p>
+</li>
+<li><p>方法监听注册方式</p>
+<p>w3c标准推荐方式</p>
+<p>addEventListener（）</p>
+<p>IE9 之前的IE不支持此方法，可使用attachEvent（）代替</p>
+<p>同一个元素同一个事件可以注册多个监听器，按照注册顺序执行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">btns[<span class="number">1</span>].<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">            <span class="title function_">alert</span>(<span class="number">22</span>);</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>DOM 事件流</p>
+<ul>
+<li><p>事件流描述的是从页面中接收事件的顺序。</p>
+</li>
+<li><p>事件发生时会在元素节点之间按照特定的顺序传播，这个传播过程 即 DOM事件流</p>
+</li>
+<li><p><img src="C:\Users\WHD\AppData\Roaming\Typora\typora-user-images\image-20220930150845996.png" alt="image-20220930150845996"></p>
+</li>
+<li><p>分为三个阶段</p>
+<ul>
+<li>捕获阶段</li>
+<li>当前目标阶段</li>
+<li>冒泡阶段</li>
+</ul>
+</li>
+<li><p><strong>dom 事件流 三个阶段</strong></p>
+</li>
+</ul>
+<p>  ​     1. JS 代码中只能执行捕获或者冒泡其中的一个阶段。</p>
+<p>  ​     2. onclick 和 attachEvent（ie） 只能得到冒泡阶段。</p>
+<pre><code> 3. 捕获阶段 如果addEventListener 第三个参数是 true 那么则处于捕获阶段  document -&gt; html -&gt; body -&gt; father -&gt; son
+
+    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> son = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.son&#x27;</span>);</span><br><span class="line"></span><br><span class="line">​     son.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">   	  		<span class="title function_">alert</span>(<span class="string">&#x27;son&#x27;</span>);</span><br><span class="line"></span><br><span class="line">​     &#125;, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> father = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.father&#x27;</span>);</span><br><span class="line"></span><br><span class="line">​     father.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">​       	<span class="title function_">alert</span>(<span class="string">&#x27;father&#x27;</span>);</span><br><span class="line"></span><br><span class="line">​     &#125;, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>  ​     4. 冒泡阶段 如果addEventListener 第三个参数是 false 或者 省略 那么则处于冒泡阶段  son -&gt; father -&gt;body -&gt; html -&gt; document</p>
+</li>
+</ul>
+</li>
+</ul>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-10-07</span><i class="fa fa-tag"></i><a class="tag" href="/tags/JS-DOM/" title="JS-DOM">JS-DOM </a><span class="leancloud_visitors"></span><span>About 1837 words, 6 min 7 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/09/30/%E5%9B%9E%E6%B5%81-%E9%87%8D%E7%BB%98-%EF%BC%88Reflow-Repaint%EF%BC%89/">回流 &amp; 重绘 （Reflow &amp; Repaint）</a></h3></div><div class="post-content"><div class="card"><p><h3 id="相关知识点"><a href="#相关知识点" class="headerlink" title="相关知识点"></a>相关知识点</h3><h6 id="1、浏览器使用流式布局模型（Flow-Based-Layout）"><a href="#1、浏览器使用流式布局模型（Flow-Based-Layout）" class="headerlink" title="1、浏览器使用流式布局模型（Flow Based Layout）"></a>1、浏览器使用流式布局模型（Flow Based Layout）</h6><p>网页布局中包括:<strong>静态布局</strong>，<strong>流式布局</strong>，<strong>响应式布局</strong>和<strong>弹性布局</strong>几种情况。</p>
 <ul>
 <li><strong>静态布局</strong>：指的就是网页中的<strong>所有元素都使用px为单位</strong>。不管浏览器具体的大小是多少，始终按照设置的值布局来显示，由于浏览器大小不一，这样的布局很容易在不同设备中出现滚动条等问题。所以这种布局在移动开发不是主流的布局方式。</li>
 <li><strong>流式布局</strong>：是页面中元素的宽度<strong>按照屏幕分辨率自动进行适配调整</strong>，也就是我们常说的适配，它可以保证当前屏幕分辨率发生改变的时候，页面中的元素大小也可以跟着改变，所以流式布局是移动端开发常用的一种布局。</li>

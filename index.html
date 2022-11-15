@@ -1,4 +1,54 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="WHD"><title>藤原拓海</title><meta name="description" content="等到放晴的那天也许我会比较好一点"><meta name="keywords" content="Blog,博客,Hexo"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a class="current" href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:220px;" alt="favicon"><h3 title=""><a href="/">藤原拓海</a></h3><div class="description"><p>等到放晴的那天也许我会比较好一点</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Lhcfl"><i class="fa fa-github"></i></a></li><li><a href="mailto:yourname@example.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://zhihu.com/people/jin-xin-4-68"><i class="fa fa-mortar-board"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 但故事最后你好像还是说了 拜 </span><i class="fa fa-star"></i><span> WHD</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/11/12/webpack-%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E9%A1%B9%E7%9B%AE%E5%A4%9A%E4%BD%99%E6%96%87%E4%BB%B6/">webpack-如何删除项目多余文件</a></h3></div><div class="post-content"><div class="card"><p><h2 id="删除项目多余文件"><a href="#删除项目多余文件" class="headerlink" title="删除项目多余文件"></a>删除项目多余文件</h2><p>项目迭代会产生多余的功能或者弃用的功能，针对此类功能，大多数是将入口关闭，或者注释掉部分代码，但是依赖的文件（js&#x2F;css&#x2F;png&#x2F;jpg等）并没有删除掉。</p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="WHD"><title>藤原拓海</title><meta name="description" content="等到放晴的那天也许我会比较好一点"><meta name="keywords" content="Blog,博客,Hexo"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a class="current" href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:220px;" alt="favicon"><h3 title=""><a href="/">藤原拓海</a></h3><div class="description"><p>等到放晴的那天也许我会比较好一点</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Lhcfl"><i class="fa fa-github"></i></a></li><li><a href="mailto:yourname@example.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://zhihu.com/people/jin-xin-4-68"><i class="fa fa-mortar-board"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 但故事最后你好像还是说了 拜 </span><i class="fa fa-star"></i><span> WHD</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/11/15/XSS%E6%94%BB%E5%87%BB/">XSS攻击</a></h3></div><div class="post-content"><div class="card"><p><h3 id="什么是XSS攻击？"><a href="#什么是XSS攻击？" class="headerlink" title="什么是XSS攻击？"></a>什么是XSS攻击？</h3><blockquote>
+<p>跨站脚本（Cross-site scripting，简称为：CSS, 但这会与层叠样式表（Cascading Style Sheets，CSS）的缩写混淆。因此，跨站脚本攻击缩写为XSS）是一种网站应用程序的安全漏洞攻击。</p>
+<p>XSS攻击通常指的是通过利用网页开发时留下的漏洞，通过巧妙的方法注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。这些恶意网页程序通常是JavaScript，但实际上也可以包括Java、 VBScript、 LiveScript、ActiveX、 Flash 或者甚至是普通的HTML。攻击成功后，攻击者可能得到包括但不限于更高的权限（如执行一些操作）、私密网页内容、会话和cookie等各种内容。</p>
+</blockquote>
+<h3 id="XSS攻击类型"><a href="#XSS攻击类型" class="headerlink" title="XSS攻击类型"></a>XSS攻击类型</h3><blockquote>
+<p>最常见的几种分类：<strong>反射型（非持久型）XSS</strong>、<strong>存储型（持久型）XSS</strong>、<strong>DOM型XSS</strong>、<strong>通用型XSS</strong>、<strong>突变型XSS</strong>。</p>
+</blockquote>
+<ul>
+<li>反射型攻击<ul>
+<li><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b53bf56086cd48988872c80c6db8f5ba~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image" alt="img"></li>
+<li>将恶意链接传入发送给用户，诱导用户点击恶意链接，访问目标服务器，在得到目标服务器返回的数据之后，用户会解析数据（含有恶意URL），访问攻击者事先设置好的恶意服务器，使得攻击者得到用户数据</li>
+<li>主要场景有以下几种：<ul>
+<li>将不可信数据插入到HTML标签之间时；&#x2F;&#x2F; 例如div, p, td；</li>
+<li>将不可信数据插入到HTML属性里时；&#x2F;&#x2F; 例如：<code>&lt;div width=$INPUT&gt;&lt;/div&gt;</code></li>
+<li>将不可信数据插入到SCRIPT里时；&#x2F;&#x2F; 例如：<code>&lt;script&gt;var message = ” $INPUT “;&lt;/script&gt;</code></li>
+<li>还有插入到Style属性里的情况，同样具有一定的危害性；&#x2F;&#x2F; 例如<code>&lt;span style=” property : $INPUT ”&gt;&lt;/span&gt;</code></li>
+<li>将不可信数据插入到HTML URL里时，&#x2F;&#x2F; 例如：<code>&lt;a href=”[http://www.abcd.com?param=](http://www.ccc.com/?param=) $INPUT ”&gt;&lt;/a&gt;</code></li>
+<li>使用富文本时，没有使用XSS规则引擎进行编码过滤。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>存储型攻击（ HTML 注入型&#x2F;持久型）<ul>
+<li><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/43b345fe21ab461b83c59dd304499851~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.image" alt="img"></li>
+<li>直接将恶意脚本输入到服务器中保存下来，使得其它用户（前端）和管理员（前后端）在访问资源时执行了恶意代码，用户访问服务器-跨站链接-返回跨站代码。</li>
+</ul>
+</li>
+<li>DOM型XSS</li>
+<li>通用型XSS</li>
+</ul>
+<h3 id="预防XSS攻击"><a href="#预防XSS攻击" class="headerlink" title="预防XSS攻击"></a>预防XSS攻击</h3><p><strong>XSS 攻击有两大要素： 1. 攻击者提交恶意代码。 2. 浏览器执行恶意代码。</strong></p>
+<h4 id="1-预防-DOM-型-XSS-攻击"><a href="#1-预防-DOM-型-XSS-攻击" class="headerlink" title="1.预防 DOM 型 XSS 攻击"></a>1.预防 DOM 型 XSS 攻击</h4><p>DOM 型 XSS 攻击，实际上就是网站前端 JavaScript 代码本身不够严谨，把不可信的数据当作代码执行了。</p>
+<p>在使用 <code>.innerHTML、.outerHTML、document.write() </code>时要特别小心，不要把不可信的数据作为 HTML 插到页面上，而应尽量使用<code> .textContent、.setAttribute()</code> 等。</p>
+<p>DOM 中的内联事件监听器，如 <code>location、onclick、onerror、onload、onmouseover </code>等， 标签的<code>href</code>属性，JavaScript 的<code>eval()、setTimeout()、setInterval()</code>等，都能把字符串作为代码运行。如果不可信的数据拼接到字符串中传递给这些 API，很容易 产生安全隐患，请务必避免。</p>
+<h4 id="2-输入过滤"><a href="#2-输入过滤" class="headerlink" title="2.输入过滤"></a>2.输入过滤</h4><p>如果由前端过滤输入，然后提交到后端的话。一旦攻击者绕过前端过滤，直接构造请求，就可以提交恶意代码了。</p>
+<p>那么，换一个过滤时机：后端在写入数据库前，对输入进行过滤，然后把“安全的”内容，返回给前端。这样是否可行呢？ 我们举一个例子，一个正常的用户输入了 5 &lt; 7 这个内容，在写入数据库前，被转义，变成了 5 <code>$lt;</code> 7。 问题是：在提交阶段，我们并不确定内容要输出到哪里。</p>
+<p>这里的“并不确定内容要输出到哪里”有两层含义：</p>
+<ol>
+<li>用户的输入内容可能同时提供给前端和客户端，而一旦经过了 escapeHTML()，客户端显示的内容就变成了乱码( 5 <code>$lt;</code>7 )。</li>
+<li>在前端中，不同的位置所需的编码也不同。 当 5 <code>$lt;</code>7  作为 HTML 拼接页面时，可以正常显示：<code>5 &lt; 7</code></li>
+</ol>
+<p>所以输入过滤非完全可靠，我们就要通过“防止浏览器执行恶意代码”来防范 XSS，可采用下面的两种方法</p>
+<h4 id="3-前端渲染把代码和数据分隔开"><a href="#3-前端渲染把代码和数据分隔开" class="headerlink" title="3.前端渲染把代码和数据分隔开"></a>3.前端渲染把代码和数据分隔开</h4><p>在前端渲染中，我们会明确的告诉浏览器：下面要设置的内容是文本（.innerText），还是属性（.setAttribute），还是样式 （.style）等等。浏览器不会被轻易的被欺骗，执行预期外的代码了。</p>
+<ul>
+<li>Javascript：可以使用textContent或者innerText的地方，尽量不使用innerHTML；</li>
+<li>query：可以使用text()得地方，尽量不使用html()；</li>
+</ul>
+<h4 id="4-拼接HTML时对其进行转义"><a href="#4-拼接HTML时对其进行转义" class="headerlink" title="4.拼接HTML时对其进行转义"></a>4.拼接HTML时对其进行转义</h4><p>如果拼接 HTML 是必要的，就需要采用合适的转义库，对 HTML 模板各处插入点进行充分的转义。</p>
+<p>常用的模板引擎，如 doT.js、ejs、FreeMarker 等，对于 HTML 转义通常只有一个规则，就是把 &amp; &lt; &gt; “ ‘ &#x2F; 这几个字符转义掉，确 实能起到一定的 XSS 防护作用，但并不完善：</p>
+<p>这里推荐一个前端防止XSS攻击的插件: <a target="_blank" rel="noopener" href="https://juejin.cn/post/6913344728515739661">js-xss的使用和源码解读</a>，Git 3.8K 的Star和60W的周下载量证明了其强大性.</p>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-11-15</span><i class="fa fa-tag"></i><a class="tag" href="/tags/计算机知识杂烩/" title="计算机知识杂烩">计算机知识杂烩 </a><span class="leancloud_visitors"></span><span>About 1502 words, 5 min 0 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/11/12/webpack-%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E9%A1%B9%E7%9B%AE%E5%A4%9A%E4%BD%99%E6%96%87%E4%BB%B6/">webpack-如何删除项目多余文件</a></h3></div><div class="post-content"><div class="card"><p><h2 id="删除项目多余文件"><a href="#删除项目多余文件" class="headerlink" title="删除项目多余文件"></a>删除项目多余文件</h2><p>项目迭代会产生多余的功能或者弃用的功能，针对此类功能，大多数是将入口关闭，或者注释掉部分代码，但是依赖的文件（js&#x2F;css&#x2F;png&#x2F;jpg等）并没有删除掉。</p>
 <p>删除项目多余文件的操作有：</p>
 <ul>
 <li><p>使用useless-files-webpack-plugin插件</p>
@@ -446,203 +496,4 @@ xhr.onreadystatechange = function() &#123;
 </ul>
 </li>
 </ul>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-10-21</span><i class="fa fa-tag"></i><a class="tag" href="/tags/Ajax/" title="Ajax">Ajax </a><span class="leancloud_visitors"></span><span>About 261 words, 52 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/10/07/JavaScript%E6%A0%B8%E5%BF%83DOM-2/">DOM事件流</a></h3></div><div class="post-content"><div class="card"><p><h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p>文档对象模型 （Document Object Model， 简称DOM）， 是W3C组织推荐的处理可扩展标记语言（HTML 或者 XML） 的标准编程接口。</p>
-<ul>
-<li><p><strong>DOM树</strong></p>
-<p><img src="https://pic3.zhimg.com/80/v2-69d53b19c03ddc8bd3bc047f328de929_720w.jpg?source=1940ef5c" alt="img"></p>
-<p>文档：一个页面一个文档，DOM使用document表示</p>
-<p>元素：页面中的所有标签都是元素，DOM中使用element表示</p>
-<p>节点： 网页中所有内容都是节点（标签、属性、文本、注释等），DOM中使用node表示</p>
-<p><strong>以上内容都看作对象</strong></p>
-</li>
-<li><p><strong>获取元素</strong></p>
-<ul>
-<li><p><strong>根据ID获取</strong></p>
-<ul>
-<li><p>使用 getElementById() 方法获取</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document"><code>Document</code></a>的方法 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/getElementById"><code>getElementById()</code></a>返回一个匹配特定 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/id">ID</a>的元素。由于元素的 ID 在大部分情况下要求是独一无二的，这个方法自然而然地成为了一个高效查找特定元素的方法。</p>
-<p>如果需要查找到那些没有 ID 的元素，你可以考虑通过 CSS 选择器使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/querySelector"><code>querySelector()</code></a>。</p>
-<p><strong>语法</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var element = document.getElementById(id);</span><br></pre></td></tr></table></figure>
-
-<p>Copy to Clipboard</p>
-<p><strong>参数</strong></p>
-<ul>
-<li>**<code>element</code>**是一个 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element">Element</a> 对象。如果当前文档中拥有特定 ID 的元素不存在则返回 null.</li>
-<li>**<code>id</code>**是大小写敏感的字符串，代表了所要查找的元素的唯一 ID.</li>
-</ul>
-<p><strong>返回值</strong></p>
-<p>返回一个匹配到 ID 的 DOM <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element"><code>Element</code></a> 对象。若在当前 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document"><code>Document</code></a> 下没有找到，则返回 null。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>根据标签名获取</strong></p>
-<ul>
-<li><p>使用getElementsTagName()方法返回带有指定标签名的对象的集合（以伪数组的形式存储）。</p>
-</li>
-<li><p>获取某个元素（父元素）内部所有指定标签名的子元素</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;标签名&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>注意：父元素必须是单个对象（必须指明是哪一个元素对象）。获取的时候不包括父元素自己</p>
-</li>
-<li></li>
-</ul>
-</li>
-<li><p><strong>通过HTML5新增的方法获取</strong></p>
-<ul>
-<li><pre><code class="javascript">document.getElementsByClassName(&#39;类名&#39;);// 根据类名返回元素对象集合
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```javascript</span><br><span class="line">  document.querySelector(&quot;.类名&quot;); // 返回指定选择器的第一个元素对象</span><br><span class="line">  // . 类名</span><br><span class="line">  // # id名</span><br><span class="line">  element = document.querySelector(selectors);</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-<li><pre><code class="javascript">document.querySelectorAll(&quot;&quot;); //返回指定选择器的所有对象的集合
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **特殊元素获取**</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    document.body; \\获取body</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-<li><pre><code class="javascript">document.documentElement; \\获取html
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ​	**事件基础**</span><br><span class="line"></span><br><span class="line">  - 事件是可被 JS 检测到的行为</span><br><span class="line">  - 事件三部分： 事件源 事件类型 事件处理程序</span><br><span class="line">    - 事件源： 事件被触发的对象   按钮</span><br><span class="line">    - 事件类型： 如何触发 什么事件 </span><br><span class="line">    - 事件处理程序 ： 通过一个函数赋值的方式完成</span><br><span class="line">  - 执行事件的步骤</span><br><span class="line">    - 获取事件源</span><br><span class="line">    - 注册事件（绑定事件）</span><br><span class="line">    - 添加事件处理程序（采取函数赋值形式）</span><br><span class="line"></span><br><span class="line">- **操作元素**</span><br><span class="line"></span><br><span class="line">  - 改变元素内容</span><br><span class="line"></span><br><span class="line">    - ```javascript</span><br><span class="line">      //从起始位置到终止位置的内容，但它去除html标签，同时空格和换行也会去掉</span><br><span class="line">      element.innerText</span><br><span class="line">      </span><br><span class="line">      //起始位置到终止位置的全部内容，包括html标签，同时保留空格和换行</span><br><span class="line">      element.innerHTML</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-<li><p>innerText <strong>不识别html的标签</strong> （非标准）</p>
-</li>
-<li><p>innerHTML <strong>识别html标签</strong> （w3c 标准）</p>
-</li>
-<li><p>以上可以获取标签内容</p>
-<ul>
-<li><p>&#96;&#96;&#96;javascript<br>事件源.innerText; &#x2F;&#x2F; 会去除空格和换行</p>
-<p>事件源.innerHTML; &#x2F;&#x2F; 不去除换行和空格</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 改变表单元素的属性操作</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    事件元素.属性 = &quot;修改后的&quot;；</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>利用DOM可以操作如下表单元素的属性：</p>
-<ul>
-<li>type、value、checked、selected、disableJad</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>修改样式属性（修改CSS）</p>
-<ul>
-<li><p>通过JS修改元素的大小、颜色、位置等样式</p>
-</li>
-<li><p>&#96;&#96;&#96;javascript<br>element.style  \行内样式操作<br>element.className \类名样式操作</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 如果样式修改较多，可以采取操作类名方式更改元素样式</span><br><span class="line"></span><br><span class="line">- class因为是个保留字，因此使用className来操作元素类名属性</span><br><span class="line"></span><br><span class="line">- className会直接更改元素的类名，会覆盖原先的类名</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    如果想要保留原先类名</span><br><span class="line">    this.className = &#x27;原先类名 新类名&#x27;；</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>排他思想</p>
-<ul>
-<li>如果有同一组元素，我们想要某一个元素实现某种样式，需要用到循环的排他思想算法：<ul>
-<li>所有元素全部清除样式</li>
-<li>给当前元素设置样式</li>
-<li>注意顺序不能颠倒，首先干掉其他人，再设置自己</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>自定义属性的操作</p>
-<ul>
-<li><p>获取元素</p>
-<ul>
-<li><pre><code class="javascript">element.属性
-
-element.getAttribute(&#39;属性&#39;)  
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 两者区别</span><br><span class="line"></span><br><span class="line">    - element.属性 获取内置属性值（元素本身自带的属性）</span><br><span class="line">    - element.getAttribute(&#x27;属性&#x27;)  主要获得自定义属性（标准）</span><br><span class="line"></span><br><span class="line">- 设置属性值</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    element.属性 = &#x27;value&#x27;;</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-<li><p>&#96;&#96;&#96;javascript<br>element.setAttribute(‘属性’， ‘value’);</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 主要目的</span><br><span class="line"></span><br><span class="line">  - 为了保存并使用数据。有些数据可以保存到页面中不需要保存到数据库中。</span><br><span class="line"></span><br><span class="line">- 设置H5自定义属性</span><br><span class="line"></span><br><span class="line">  - H5规定自定义属性data-开头作为属性名并且赋值</span><br><span class="line"></span><br><span class="line">- H5新增的获取自定义属性的方法</span><br><span class="line"></span><br><span class="line">  ```javascript</span><br><span class="line">  document.dataset.属性名称；</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>如果自定义属性有多个 ’-‘ 链接的单词，获取时采取驼峰命名法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data-list-name</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">dataset</span>[<span class="string">&#x27;listName&#x27;</span>]);</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>节点操作</p>
-<ul>
-<li><p>利用节点层级关系获取元素</p>
-<ul>
-<li>利用父子兄节点关系获取元素</li>
-<li>逻辑性强，但是兼容性稍差</li>
-</ul>
-</li>
-<li><p>一般来说，节点至少有nodeName（节点名称）、nodeType（节点类型）、nodeValue（节点值）三个基本属性</p>
-</li>
-<li><table>
-<thead>
-<tr>
-<th>元素节点</th>
-<th align="center">节点类型取值（nodeType）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>元素element</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td>属性attr</td>
-<td align="center">2</td>
-</tr>
-<tr>
-<td>文本text</td>
-<td align="center">3</td>
-</tr>
-<tr>
-<td>注释comments</td>
-<td align="center">8</td>
-</tr>
-<tr>
-<td>文档document</td>
-<td align="center">9</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-</li>
-<li><p>注册事件概述</p>
-<ul>
-<li><p>给元素添加事件，称为<strong>注册事件</strong>或者<strong>绑定事件</strong></p>
-</li>
-<li><p>注册事件有两种方式： 传统方式  和  方法监听注册事件</p>
-</li>
-<li><p>传统注册方式 ： 利用on开头的事件（onclick）</p>
-<p>特点：注册事件的唯一性，同一个元素同一个事件只能处理一个函数，最后注册的处理函数将会覆盖前面注册的处理函数</p>
-</li>
-<li><p>方法监听注册方式</p>
-<p>w3c标准推荐方式</p>
-<p>addEventListener（）</p>
-<p>IE9 之前的IE不支持此方法，可使用attachEvent（）代替</p>
-<p>同一个元素同一个事件可以注册多个监听器，按照注册顺序执行</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">btns[<span class="number">1</span>].<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">            <span class="title function_">alert</span>(<span class="number">22</span>);</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>DOM 事件流</p>
-<ul>
-<li><p>事件流描述的是从页面中接收事件的顺序。</p>
-</li>
-<li><p>事件发生时会在元素节点之间按照特定的顺序传播，这个传播过程 即 DOM事件流</p>
-</li>
-<li><p><img src="C:\Users\WHD\AppData\Roaming\Typora\typora-user-images\image-20220930150845996.png" alt="image-20220930150845996"></p>
-</li>
-<li><p>分为三个阶段</p>
-<ul>
-<li>捕获阶段</li>
-<li>当前目标阶段</li>
-<li>冒泡阶段</li>
-</ul>
-</li>
-<li><p><strong>dom 事件流 三个阶段</strong></p>
-</li>
-</ul>
-<p>  ​     1. JS 代码中只能执行捕获或者冒泡其中的一个阶段。</p>
-<p>  ​     2. onclick 和 attachEvent（ie） 只能得到冒泡阶段。</p>
-<pre><code> 3. 捕获阶段 如果addEventListener 第三个参数是 true 那么则处于捕获阶段  document -&gt; html -&gt; body -&gt; father -&gt; son
-
-    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> son = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.son&#x27;</span>);</span><br><span class="line"></span><br><span class="line">​     son.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">   	  		<span class="title function_">alert</span>(<span class="string">&#x27;son&#x27;</span>);</span><br><span class="line"></span><br><span class="line">​     &#125;, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> father = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.father&#x27;</span>);</span><br><span class="line"></span><br><span class="line">​     father.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">​       	<span class="title function_">alert</span>(<span class="string">&#x27;father&#x27;</span>);</span><br><span class="line"></span><br><span class="line">​     &#125;, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
-</code></pre>
-<p>  ​     4. 冒泡阶段 如果addEventListener 第三个参数是 false 或者 省略 那么则处于冒泡阶段  son -&gt; father -&gt;body -&gt; html -&gt; document</p>
-</li>
-</ul>
-</li>
-</ul>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-10-07</span><i class="fa fa-tag"></i><a class="tag" href="/tags/JS-DOM/" title="JS-DOM">JS-DOM </a><span class="leancloud_visitors"></span><span>About 1837 words, 6 min 7 sec  read</span></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/page/2/">Next</a></li></ul></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-10-21</span><i class="fa fa-tag"></i><a class="tag" href="/tags/Ajax/" title="Ajax">Ajax </a><span class="leancloud_visitors"></span><span>About 261 words, 52 sec  read</span></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/page/2/">Next</a></li></ul></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
