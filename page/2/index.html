@@ -1,4 +1,116 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="WHD"><title>藤原拓海</title><meta name="description" content="等到放晴的那天也许我会比较好一点"><meta name="keywords" content="Blog,博客,Hexo"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:220px;" alt="favicon"><h3 title=""><a href="/">藤原拓海</a></h3><div class="description"><p>等到放晴的那天也许我会比较好一点</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Lhcfl"><i class="fa fa-github"></i></a></li><li><a href="mailto:yourname@example.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://zhihu.com/people/jin-xin-4-68"><i class="fa fa-mortar-board"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 但故事最后你好像还是说了 拜 </span><i class="fa fa-star"></i><span> WHD</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/10/07/JavaScript%E6%A0%B8%E5%BF%83DOM-2/">DOM事件流</a></h3></div><div class="post-content"><div class="card"><p><h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p>文档对象模型 （Document Object Model， 简称DOM）， 是W3C组织推荐的处理可扩展标记语言（HTML 或者 XML） 的标准编程接口。</p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="WHD"><title>藤原拓海</title><meta name="description" content="等到放晴的那天也许我会比较好一点"><meta name="keywords" content="Blog,博客,Hexo"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:220px;" alt="favicon"><h3 title=""><a href="/">藤原拓海</a></h3><div class="description"><p>等到放晴的那天也许我会比较好一点</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Lhcfl"><i class="fa fa-github"></i></a></li><li><a href="mailto:yourname@example.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://zhihu.com/people/jin-xin-4-68"><i class="fa fa-mortar-board"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 但故事最后你好像还是说了 拜 </span><i class="fa fa-star"></i><span> WHD</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/10/22/Ajax-XMLHttpRequest%E5%AF%B9%E8%B1%A1/">Ajax-XMLHttpRequest对象</a></h3></div><div class="post-content"><div class="card"><p><h4 id="XMLHttpRequest对象"><a href="#XMLHttpRequest对象" class="headerlink" title="XMLHttpRequest对象"></a>XMLHttpRequest对象</h4><p><code>XMLHttpRequest</code>（XHR）对象用于与服务器交互。通过 XMLHttpRequest 可以在不刷新页面的情况下请求特定 URL，获取数据。这允许网页在不影响用户操作的情况下，更新页面的局部内容。<code>XMLHttpRequest</code> 在 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/AJAX">AJAX</a> 编程中被大量使用。</p>
+<p>通俗来讲，AJAX利用XHR对象作为中介进行服务器与客户端的连接和数据交换。</p>
+<ul>
+<li>方法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>abort()</td>
+<td>取消当前请求</td>
+</tr>
+<tr>
+<td>getAllResponseHeaders()</td>
+<td>返回头部信息</td>
+</tr>
+<tr>
+<td>getResponseHeader()</td>
+<td>返回特定的头部信息</td>
+</tr>
+<tr>
+<td>open(method, url, async, user, psw)</td>
+<td>规定请求method，请求类型GET或POSTurl，文件位置async：true(异步) 或 false(同步)， user：可选的用户名称， psw：可选的密码</td>
+</tr>
+<tr>
+<td>send()</td>
+<td>将请求发送到服务器， 用于GET请求</td>
+</tr>
+<tr>
+<td>send(string)</td>
+<td>将请求发送到服务器， 用于POST请求</td>
+</tr>
+<tr>
+<td>setRequestHeader()</td>
+<td>向要发送的报头添加标签&#x2F;值对</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// abort()</span></span><br><span class="line">xhrInstance.<span class="title function_">abort</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//getAllResponseHeaders()</span></span><br><span class="line"><span class="keyword">var</span> headers = <span class="title class_">XMLHttpRequest</span>.<span class="title function_">getAllResponseHeaders</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//原始的header</span></span><br><span class="line"><span class="attr">date</span>: <span class="title class_">Fri</span>, <span class="number">08</span> <span class="title class_">Dec</span> <span class="number">2017</span> <span class="number">21</span>:<span class="number">04</span>:<span class="number">30</span> <span class="variable constant_">GMT</span>\r\n</span><br><span class="line">content-<span class="attr">encoding</span>: gzip\r\n</span><br><span class="line">x-content-type-<span class="attr">options</span>: nosniff\r\n</span><br><span class="line"><span class="attr">server</span>: meinheld/<span class="number">0.6</span><span class="number">.1</span>\r\n</span><br><span class="line">x-frame-<span class="attr">options</span>: <span class="variable constant_">DENY</span>\r\n</span><br><span class="line">content-<span class="attr">type</span>: text/html; charset=utf-<span class="number">8</span>\r\n</span><br><span class="line"><span class="attr">connection</span>: keep-alive\r\n</span><br><span class="line">strict-transport-<span class="attr">security</span>: max-age=<span class="number">63072000</span>\r\n</span><br><span class="line"><span class="attr">vary</span>: <span class="title class_">Cookie</span>, <span class="title class_">Accept</span>-<span class="title class_">Encoding</span>\r\n</span><br><span class="line">content-<span class="attr">length</span>: <span class="number">6502</span>\r\n</span><br><span class="line">x-xss-<span class="attr">protection</span>: <span class="number">1</span>; mode=block\r\n</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//getResponseHeader()</span></span><br><span class="line"><span class="keyword">var</span> myHeader = <span class="title class_">XMLHttpRequest</span>.<span class="title function_">getResponseHeader</span>(name);</span><br><span class="line"></span><br><span class="line"><span class="comment">//open(method, url, async, user, psw)</span></span><br><span class="line"><span class="comment">//method</span></span><br><span class="line"><span class="comment">//要使用的 HTTP 方法，比如 GET、POST、PUT、DELETE、等。对于非 HTTP(S) URL 被忽略。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//url</span></span><br><span class="line"><span class="comment">//一个 DOMString 表示要向其发送请求的 URL。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//async 可选</span></span><br><span class="line"><span class="comment">//一个可选的布尔参数，表示是否异步执行操作，默认为 true。如果值为 false，send() 方法直到收到答复前不会返回。如果 true，已完成事务的通知可供事件监听器使用。如果 multipart 属性为 true 则这个必须为 true，否则将引发异常。</span></span><br><span class="line"></span><br><span class="line">xhrReq.<span class="title function_">open</span>(method, url);</span><br><span class="line">xhrReq.<span class="title function_">open</span>(method, url, <span class="keyword">async</span>);</span><br><span class="line">xhrReq.<span class="title function_">open</span>(method, url, <span class="keyword">async</span>, user);</span><br><span class="line">xhrReq.<span class="title function_">open</span>(method, url, <span class="keyword">async</span>, user, password);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//send()</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//send(string)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//setRequestHeader()</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>属性</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onreadystatechange</td>
+<td>定义当readyState属性发生变化时被调用的函数</td>
+</tr>
+<tr>
+<td>readyState（只读）</td>
+<td>保存XMLHttpRequest的状态，0：请求未初始化      1： 服务器连接以及建立    2：请求已收到   3：正在处理请求  4： 请求已完成且响应已就绪</td>
+</tr>
+<tr>
+<td>responseText（只读）</td>
+<td>以字符串返回响应的数据</td>
+</tr>
+<tr>
+<td>responseXML（只读）</td>
+<td>以XML返回响应数据</td>
+</tr>
+<tr>
+<td>status（只读）</td>
+<td>返回请求的状态号 200 ： ”OK“  403 ：”Forbidden“  404 ：”Not Found</td>
+</tr>
+<tr>
+<td>statusText（只读）</td>
+<td>返回状态文本（”OK“ ”Not Found“）</td>
+</tr>
+</tbody></table>
+<ul>
+<li><pre><code class="javascript">//onreadystatechange
+
+XMLHttpRequest.onreadystatechange = callback; // 语法
+xhr.onreadystatechange = function() &#123;
+    
+    &#125;
+</code></pre>
+</li>
+</ul>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-10-22</span><i class="fa fa-tag"></i><a class="tag" href="/tags/Ajax/" title="Ajax">Ajax </a><span class="leancloud_visitors"></span><span>About 654 words, 2 min 10 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/10/22/%E4%BB%80%E4%B9%88%E6%98%AF%E2%80%9D%E8%80%A6%E5%90%88%E2%80%9C%E5%92%8C%E2%80%9D%E8%A7%A3%E8%80%A6%E2%80%9C%EF%BC%9F/">什么是”耦合“和”解耦“？</a></h3></div><div class="post-content"><div class="card"><p><h2 id="程序员所说的“耦合”和“解耦”"><a href="#程序员所说的“耦合”和“解耦”" class="headerlink" title="程序员所说的“耦合”和“解耦”"></a>程序员所说的“耦合”和“解耦”</h2><p>在工程中，对象之间的耦合度就是对象之间的依赖性。对象之间的耦合越高，维护成本越高，因此对象的设计应使类和构件之间的耦合最小。</p>
+<p><strong>耦合的分类</strong></p>
+<p>分类：有软硬件之间的耦合，还有软件各模块之间的耦合。耦合性是程序结构中各个模块之间相互关联的度量。它取决于各个模块之间的接口的复杂程度、调用模块的方式以及哪些信息通过接口。</p>
+<p><strong>解耦</strong></p>
+<p>1、解耦，字面意思就是解除耦合关系。</p>
+<p>2、在软件工程中，降低耦合度即可以理解为解耦，模块间有依赖关系必然存在耦合，理论上的绝对零耦合是做不到的，但可以通过一些现有的方法将耦合度降至最低。</p>
+<p>3、设计的核心思想：尽可能减少代码耦合，如果发现代码耦合，就要采取解耦技术。让数据模型，业务逻辑和视图显示三层之间彼此降低耦合，把关联依赖降到最低，而不至于牵一发而动全身。原则就是A功能的代码不要写在B的功能代码中，如果两者之间需要交互，可以通过接口，通过消息，甚至可以引入框架，但总之就是不要直接交叉写。</p>
+<p>4、观察者模式：观察者模式存在的意义就是「解耦」，它使观察者和被观察者的逻辑不再搅在一起，而是彼此独立、互不依赖。比如网易新闻的夜间模式，当用户切换成夜间模式之后，被观察者会通知所有的观察者「设置改变了，大家快蒙上遮罩吧」。QQ消息推送来了之后，既要在通知栏上弹个推送，又要在桌面上标个小红点，也是观察者与被观察者的巧妙配合。</p>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-10-22</span><i class="fa fa-tag"></i><a class="tag" href="/tags/计算机知识杂烩/" title="计算机知识杂烩">计算机知识杂烩 </a><span class="leancloud_visitors"></span><span>About 573 words, 1 min 54 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/10/21/Ajax-%E4%BC%A0%E7%BB%9F%E8%AF%B7%E6%B1%82%E4%BB%A5%E5%8F%8A%E7%BC%BA%E7%82%B9/">Ajax-传统请求以及缺点</a></h3></div><div class="post-content"><div class="card"><p><h4 id="传统请求及缺点"><a href="#传统请求及缺点" class="headerlink" title="传统请求及缺点"></a>传统请求及缺点</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 直接在浏览器地址上输入<span class="variable constant_">URL</span> --&gt;</span><br><span class="line"></span><br><span class="line">   &lt;!-- 超链接 --&gt;</span><br><span class="line">   <span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;old/request&quot;</span>&gt;</span>传统请求（超链接）<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">   &lt;!-- form表单提交 --&gt;</span><br><span class="line">   &lt;form action=&quot;&quot; method=&quot;get&quot;&gt;</span><br><span class="line">       &lt;input type=&quot;submit&quot; value=&quot;传统请求(form表单提交)&quot;&gt;</span><br><span class="line">   &lt;/form&gt;</span><br><span class="line">   &lt;!-- 通过JS代码来发送请求 --&gt;</span><br><span class="line">   &lt;input type=&quot;button&quot; value=&quot;传统请求(通过JS代码发送请求)&quot; onclick=&quot;sendRequest()&quot;&gt;</span><br><span class="line">   </span><br><span class="line">   &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">       function sendRequest() &#123;</span><br><span class="line">           //发送请求</span><br><span class="line">           // window.location.href = &#x27;&#x27;;</span><br><span class="line">           document.location.href = &#x27;old/request&#x27;</span><br><span class="line">         &#125;</span><br><span class="line">   &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>存在的问题<ul>
+<li>页面会全部刷新导致了用户的体验较差</li>
+<li>传统的请求导致用户的体验有空白期（用户体验不连贯）</li>
+</ul>
+</li>
+<li>例如：当播放视频时，点击登录按钮<ul>
+<li>传统请求会将全部页面刷新，视频缓存重新开始，视频间断</li>
+<li>Ajax 仅仅更新登录模块内容，不刷新整个页面</li>
+</ul>
+</li>
+</ul>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-10-21</span><i class="fa fa-tag"></i><a class="tag" href="/tags/Ajax/" title="Ajax">Ajax </a><span class="leancloud_visitors"></span><span>About 261 words, 52 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/10/07/JavaScript%E6%A0%B8%E5%BF%83DOM-2/">DOM事件流</a></h3></div><div class="post-content"><div class="card"><p><h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p>文档对象模型 （Document Object Model， 简称DOM）， 是W3C组织推荐的处理可扩展标记语言（HTML 或者 XML） 的标准编程接口。</p>
 <ul>
 <li><p><strong>DOM树</strong></p>
 <p><img src="https://pic3.zhimg.com/80/v2-69d53b19c03ddc8bd3bc047f328de929_720w.jpg?source=1940ef5c" alt="img"></p>
@@ -481,17 +593,4 @@ element.getAttribute(&#39;属性&#39;)
 </ul>
 </li>
 </ul>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-09-21</span><i class="fa fa-tag"></i><a class="tag" href="/tags/CSS/" title="CSS">CSS </a><span class="leancloud_visitors"></span><span>About 535 words, 1 min 47 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/09/21/hello-world/">Hello World</a></h3></div><div class="post-content"><div class="card"><p><p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-09-21</span><span class="leancloud_visitors"></span><span>About 75 words, 15 sec  read</span></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/">Previous</a></li></ul></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-09-21</span><i class="fa fa-tag"></i><a class="tag" href="/tags/CSS/" title="CSS">CSS </a><span class="leancloud_visitors"></span><span>About 535 words, 1 min 47 sec  read</span></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/">Previous</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/page/3/">Next</a></li></ul></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
