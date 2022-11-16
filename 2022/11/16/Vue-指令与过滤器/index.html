@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="WHD"><title>Vue-指令与过滤器 · 藤原拓海</title><meta name="description" content="- 
+指令与过滤器指令
+指令：是vue为开发者提供的模板语法，用于辅助开发者渲染页面的基本结构
+
+vue中的指令按照用途可以分为6大类：
+
+内容渲染指令
+
+内容渲染指令用来辅助开发者渲染DOM元素的文本内容，常用的内容渲染指令有如下3个：
+
+v-text
+
+&amp;lt;p v-text = &amp;quot;"><meta name="keywords" content="Blog,博客,Hexo"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:220px;" alt="favicon"><h3 title=""><a href="/">藤原拓海</a></h3><div class="description"><p>等到放晴的那天也许我会比较好一点</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Lhcfl"><i class="fa fa-github"></i></a></li><li><a href="mailto:yourname@example.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://zhihu.com/people/jin-xin-4-68"><i class="fa fa-mortar-board"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 但故事最后你好像还是说了 拜 </span><i class="fa fa-star"></i><span> WHD</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Vue-指令与过滤器</a></h3></div><div class="post-content"><p><p>- </p>
+<h2 id="指令与过滤器"><a href="#指令与过滤器" class="headerlink" title="指令与过滤器"></a>指令与过滤器</h2><h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><blockquote>
+<p>指令：是vue为开发者提供的模板语法，用于辅助开发者渲染页面的基本结构</p>
+</blockquote>
+<p><strong>vue中的指令按照用途可以分为6大类：</strong></p>
+<ul>
+<li><p><strong>内容渲染指令</strong></p>
+<ul>
+<li><p>内容渲染指令用来辅助开发者渲染DOM元素的文本内容，常用的内容渲染指令有如下3个：</p>
+<ul>
+<li><p>v-text</p>
+<ul>
+<li><pre><code class="html">&lt;p v-text = &quot;username&quot;&gt;&lt;/p&gt;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - **缺点：**</span><br><span class="line"></span><br><span class="line">    - **会覆盖标签内部原本的内容**</span><br><span class="line">    - **不能渲染html标签**</span><br><span class="line"></span><br><span class="line">- &#123;&#123;&#125;&#125;  插值表达式（Mustache）</span><br><span class="line"></span><br><span class="line">  - ```html</span><br><span class="line">     &lt;div id=&quot;app&quot;&gt;&#123;&#123; username &#125;&#125;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p><strong>缺点:不能渲染html标签</strong></p>
+</li>
+<li><p>插入的值发生变化,内容会跟着变化</p>
+</li>
+<li><p>使用v-once指令可以一次性的插值, 当数据改变时, 插值处的内容不会更新.</p>
+</li>
+<li><pre><code class="html">&lt;span v-once&gt;这个将不会改变: &#123;&#123; msg &#125;&#125;&lt;/span&gt;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- v-html</span><br><span class="line"></span><br><span class="line">  - ```html</span><br><span class="line">    &lt;p v-html = &quot;info&quot;&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>可以渲染带有标签的字符串成HTML内容</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>属性绑定指令</strong></p>
+<blockquote>
+<p>注意: 插值表达式只能用在 内容渲染指令 </p>
+</blockquote>
+<ul>
+<li><p><code>v-bind</code></p>
+<ul>
+<li><p>可以使用v-bind指令(缩写 : )对DOM节点中的属性进行动态绑定</p>
+<ul>
+<li>&#96;&#96;&#96;html<div id="app">
+        <input type="text" v-bind:placeholder="tips">
+        <img v-bind:src="photo" alt="images">
+    </div>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **事件绑定指令**</span><br><span class="line"></span><br><span class="line">  -  `v-on`</span><br><span class="line"></span><br><span class="line">    - 利用v-on指令对DOM节点进行事件绑定</span><br><span class="line"></span><br><span class="line">    - ```html</span><br><span class="line">      &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">              &lt;p&gt;count 的值是 &#123;&#123;count&#125;&#125;&lt;/p&gt;</span><br><span class="line">              &lt;button @click=&quot;addCount(99)&quot;&gt;+1&lt;/button&gt;</span><br><span class="line">              &lt;button v-on:click=&quot;subCount&quot;&gt;-1&lt;/button&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">          &lt;!-- 导入vue文件 --&gt;</span><br><span class="line">          &lt;script src=&quot;./lib/vue-2.6.12.js&quot;&gt; &lt;/script&gt;</span><br><span class="line">      </span><br><span class="line">          &lt;!-- 创建vue的实例对象 --&gt;</span><br><span class="line">          &lt;script&gt;</span><br><span class="line">              const vm = new Vue(&#123;</span><br><span class="line">                  el: &#x27;#app&#x27;,</span><br><span class="line">                  data: &#123;</span><br><span class="line">                      count: 3,</span><br><span class="line">                  &#125;,</span><br><span class="line">                  methods: &#123;</span><br><span class="line">                      addCount (n) &#123;  </span><br><span class="line">                          vm.count += n</span><br><span class="line">                      &#125;,</span><br><span class="line">                      subCount() &#123;</span><br><span class="line">                          vm.count--</span><br><span class="line">                      &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;)</span><br><span class="line">          &lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>在vm实例中添加methods属性，定义事件</p>
+</li>
+<li><p>缩写@+绑定事件类型</p>
+</li>
+<li><p>$event 表示原本的事件对象e , 如需使用，可以作为参数传递进事件函数</p>
+</li>
+</ul>
+</li>
+<li><p><code>事件修饰符</code></p>
+<ul>
+<li>加在事件绑定的后面控制事件触发</li>
+<li>@click.prevent 阻止默认行为（链接跳转，表单提交等）</li>
+<li>@click.stop 阻止事件冒泡</li>
+<li>@click.capture </li>
+<li>@click.once</li>
+<li>@click.self</li>
+</ul>
+</li>
+<li><p><code>按键修饰符</code></p>
+<ul>
+<li>在监听键盘事件时，可以为键盘相关事件添加按键修饰符（@keyup.enter ,  @keyup.esc）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>双向绑定指令</strong></p>
+<ul>
+<li><code>v-model</code><ul>
+<li>用来辅助开发者在不操作DOM的前提下，快速获取表单内容</li>
+<li>可以双向绑定数据（用户的输入改变，可以同时改变data中的数据，反之也是），v-bind只能实现单向绑定</li>
+<li>配套的HTML标签<ul>
+<li>input输入框</li>
+<li>textarea</li>
+<li>select</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>专用修饰符<ul>
+<li><code>.number</code> : 将采集到的数据转为number ，如果不转换，默认为string</li>
+<li><code>.trim</code> ： 自动过滤用户输入的首位空白字符</li>
+<li><code>.lazy</code>：在 “change”  时而非 “input” 时更新，防抖，用户输入的时候不改变data中的数据，只在用户输入完成（失去焦点时）进行更改</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>条件渲染指令</strong></p>
+<blockquote>
+<p>用来辅助开发者按需控制DOM的显示与隐藏</p>
+</blockquote>
+<ul>
+<li><code>v-if</code><ul>
+<li>隐藏方式：动态删除或创建元素</li>
+</ul>
+</li>
+<li><code>v-else if </code>, <code>v-else</code></li>
+<li><code>v-show</code><ul>
+<li>隐藏方式：修改标签的行内样式 <code>display: none</code></li>
+</ul>
+</li>
+<li>频繁切换元素的显示状态，使用v-show性能更好</li>
+<li>刚生成页面时，某些元素不需要展示，则使用v-if更好</li>
+</ul>
+</li>
+<li><p><strong>列表渲染指令</strong></p>
+<ul>
+<li><p><code>v-for</code></p>
+<ul>
+<li><p>基于一个数组来玄幻渲染一个列表结构，需要使用<code>item in items</code>形式，其中 <code>items</code>是待循环的数组，<code>item</code>是被循环的每一项</p>
+</li>
+<li><p>&#96;&#96;&#96;html</p>
+<ul id="app">
+        <table class="table table-boder table-hover table-striped" >
+            <thead>
+                <th>索引</th>
+                <th>ID</th>
+                <th>姓名</th>
+            </thead>
+            <tbody>
+                <tr v-for="(item, i) in list">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+
+
+<pre><code>    &lt;/table&gt;
+&lt;/ul&gt;
+
+&lt;script&gt;
+    const vm = new Vue(&#123;
+        el: &#39;#app&#39;,
+        data: &#123;
+            list : [
+                &#123;id: 1, name: &#39;www&#39;&#125;,
+                &#123;id: 2, name: &#39;hhh&#39;&#125;,
+                &#123;id: 3, name: &#39;ddd&#39;&#125;,
+            ]
+        &#125;
+    &#125;)
+&lt;/script&gt;
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    - v-for 还支持可选的第二个参数，当前项的索引，语法格式为`(item, index) in items`</span><br><span class="line"></span><br><span class="line">  - **需要注意的点**</span><br><span class="line"></span><br><span class="line">    - 只要用到了v-for指令，那么一定要绑定一个 :key 属性，而且尽量把id作为key的值</span><br><span class="line">    -  key只能是字符串或数字类型</span><br><span class="line">    - key不允许重复（必须具有唯一性）</span><br><span class="line">    - 使用index的值作为key的值没用任何意义</span><br><span class="line"></span><br><span class="line">### 过滤器</span><br><span class="line"></span><br><span class="line">&gt;过滤器是vue为开发者提供的功能，常用于文本的格式化。过滤器可以用在两个地方：插值表达式和v-bind属性绑定</span><br><span class="line">&gt;</span><br><span class="line">&gt;过滤器应该被添加在JavaScript表达式的尾部，由”管道符“进行调用</span><br><span class="line"></span><br><span class="line">```html</span><br><span class="line">&#123;&#123;message | capitaliza&#125;&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注意点</p>
+<ul>
+<li>要定义在filters节点下，本质是一个函数</li>
+<li>在过滤器函数中，一定要由返回值</li>
+<li>message 是capitaliza 过滤函数 的参数</li>
+</ul>
+</li>
+</ul>
+<h4 id="私有过滤器"><a href="#私有过滤器" class="headerlink" title="私有过滤器"></a>私有过滤器</h4><ul>
+<li>在filters节点下定义的过滤器，称为”私有过滤器“，只能在当前vm实例所使用</li>
+</ul>
+<h4 id="全局过滤器"><a href="#全局过滤器" class="headerlink" title="全局过滤器"></a>全局过滤器</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vue.filter(&#x27;capitalize&#x27;, (str) =&gt; &#123;</span><br><span class="line">	</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第一个参数，是全局过滤器的名字</li>
+<li>第二个参数，是全局过滤器的处理函数</li>
+<li>如果全局过滤器和私有过滤器名字一致，此时按照就近原则，调用私有过滤器</li>
+</ul>
+<blockquote>
+<p>可以连续调用多个过滤器</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; message | xxx | YYY &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>过滤器的本质是 JS函数，可以接收参数，只能从第二个参数开始接收</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; message | <span class="title function_">filter</span>(arg1, arg2) &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">filter</span>(<span class="string">&#x27;filter&#x27;</span>, <span class="function">(<span class="params">message, arg1, arg2</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+</p><div class="tip">本文采用CC-BY-SA-3.0协议，转载请注明出处<br>Author: WHD</div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-11-16</span><i class="fa fa-tag"></i><a class="tag" href="/tags/Vue/" title="Vue">Vue </a><span class="leancloud_visitors"></span><span>About 1371 words, 4 min 34 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2022/11/16/Vue-指令与过滤器/,藤原拓海,Vue-指令与过滤器,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2022/11/16/HTML-Form%E8%A1%A8%E5%8D%95%E8%AF%A6%E8%A7%A3/" title="HTML-Form表单详解">Next</a></li></ul></div><script src="/js/visitors.js"></script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
