@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="WHD"><title>HTML-Form表单详解 · 藤原拓海</title><meta name="description" content="Form表单详解
+在HTML中，form标签称为表单
+表单在页面样式中不会产生任何影响，但是会影响页面的行为
+可以将表单中的数据，使用指定的请求方式（get 或 post），提交到指定的服务器地址
+
+
+主要有以下四个内容
+请求时机
+请求方式
+请求地址
+发送的数据
+
+
+
+请求时机有两种情况都会导致fo"><meta name="keywords" content="Blog,博客,Hexo"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:220px;" alt="favicon"><h3 title=""><a href="/">藤原拓海</a></h3><div class="description"><p>等到放晴的那天也许我会比较好一点</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Lhcfl"><i class="fa fa-github"></i></a></li><li><a href="mailto:yourname@example.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://zhihu.com/people/jin-xin-4-68"><i class="fa fa-mortar-board"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 但故事最后你好像还是说了 拜 </span><i class="fa fa-star"></i><span> WHD</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>HTML-Form表单详解</a></h3></div><div class="post-content"><p><h3 id="Form表单详解"><a href="#Form表单详解" class="headerlink" title="Form表单详解"></a>Form表单详解</h3><blockquote>
+<p>在HTML中，form标签称为表单</p>
+<p>表单在页面样式中不会产生任何影响，但是会影响页面的行为</p>
+<p>可以将表单中的数据，使用指定的请求方式（get 或 post），提交到指定的服务器地址</p>
+</blockquote>
+<ul>
+<li>主要有以下四个内容<ul>
+<li>请求时机</li>
+<li>请求方式</li>
+<li>请求地址</li>
+<li>发送的数据</li>
+</ul>
+</li>
+</ul>
+<h4 id="请求时机"><a href="#请求时机" class="headerlink" title="请求时机"></a>请求时机</h4><p>有两种情况都会导致form表单的提交</p>
+<ul>
+<li><p><strong>点击了表单中的提交按钮</strong></p>
+<ul>
+<li>提交按钮指的是，<code>type=&quot;submit&quot;</code>的按钮（不管是button还是input）。另外，<code>type=&quot;image&quot;</code>的<code>input</code>标签，也可以实现提交，也可以当做是提交按钮。</li>
+<li>注意点：<ul>
+<li>提交按钮必须放置在表单里面</li>
+<li>点击提交按钮时，只提交它所在的表单</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>在 JS 中调用的表单对象的submit方法</strong></p>
+<p>1、获取form表单的dom对象</p>
+<p>2、为dom对象绑定事件</p>
+<p>3、提交form表单</p>
+</li>
+</ul>
+<h4 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h4><p>了解了form表单的提交时机，再来看它的请求方式</p>
+<p>所谓请求方式，就是提交时将使用什么类型的请求（get、post）发送给服务器</p>
+<p>使用form标签的method属性，可以控制form表单的提交方式，该属性可以省略，若省略，默认的提交方式是get</p>
+<p>当使用get方式提交表单时，浏览器会将表单中的数据添加到地址后面，作为地址参数</p>
+<p>下面的form表单使用了get的方式提交请求：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/server.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>账号：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;loginid&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;loginpwd&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>当提交表单时，向服务器发送以下信息：</p>
+<p>请求地址：&#x2F;server.php?loginid&#x3D;账号文本框内容&amp;loginpwd&#x3D;密码文本框内容</p>
+<p>请求体：无</p>
+<p>反之，如果使用post的方式提交请求：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/server.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>账号：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;loginid&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;loginpwd&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>当提交表单时，则向服务器发送以下信息：</p>
+<p>请求地址：&#x2F;server.php</p>
+<p>请求体：loginid&#x3D;账号文本框内容&amp;loginpwd&#x3D;密码文本框内容</p>
+<h4 id="请求地址"><a href="#请求地址" class="headerlink" title="请求地址"></a>请求地址</h4><p>表单中的请求地址是指，当提交form表单时，会将表单中的数据提交到服务的哪个地址去处理，就好比你去政府办事，你要把你的资料提交给哪个部门来处理</p>
+<p>你可以使用form标签的<code>action</code>属性来设置其提交地址，该属性如果被省略，则默认为当前页面地址</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 当提交表单时，会将表单内容发送给/server.php这个地址处理 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/server.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>账号：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;loginid&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;loginpwd&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="发送的数据"><a href="#发送的数据" class="headerlink" title="发送的数据"></a>发送的数据</h4><p>可以被表单发送的数据必须满足：</p>
+<ul>
+<li>具有name属性的标签</li>
+<li>必须是**包含在form标签里的 ** <code>input</code>、<code>select</code>、<code>textarea</code>标签，其他标签不会提交到服务器</li>
+</ul>
+<p>提交数据时，键值对分别如下：</p>
+<ul>
+<li>键：标签的name属性值</li>
+<li>值：标签的value属性值</li>
+</ul>
+<h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4></p><div class="tip">本文采用CC-BY-SA-3.0协议，转载请注明出处<br>Author: WHD</div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-11-16</span><i class="fa fa-tag"></i><a class="tag" href="/tags/HTML/" title="HTML">HTML </a><span class="leancloud_visitors"></span><span>About 991 words, 3 min 18 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2022/11/16/HTML-Form表单详解/,藤原拓海,HTML-Form表单详解,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2022/11/15/Vue-%E4%BD%BF%E7%94%A8/" title="Vue-使用">Next</a></li></ul></div><script src="/js/visitors.js"></script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
