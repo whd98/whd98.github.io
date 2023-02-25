@@ -1,4 +1,270 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="WHD"><title>藤原拓海</title><meta name="description" content="等到放晴的那天也许我会比较好一点"><meta name="keywords" content="Blog,博客,Hexo"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a class="current" href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:220px;" alt="favicon"><h3 title=""><a href="/">藤原拓海</a></h3><div class="description"><p>等到放晴的那天也许我会比较好一点</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Lhcfl"><i class="fa fa-github"></i></a></li><li><a href="mailto:yourname@example.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://zhihu.com/people/jin-xin-4-68"><i class="fa fa-mortar-board"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 但故事最后你好像还是说了 拜 </span><i class="fa fa-star"></i><span> WHD</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/11/17/Vue-%E4%BE%A6%E5%90%AC%E5%99%A8%E5%92%8C%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/">Vue-侦听器和计算属性</a></h3></div><div class="post-content"><div class="card"><p><h2 id="侦听器-监听器-watch"><a href="#侦听器-监听器-watch" class="headerlink" title="侦听器(监听器 watch)"></a>侦听器(监听器 watch)</h2><blockquote>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="WHD"><title>藤原拓海</title><meta name="description" content="等到放晴的那天也许我会比较好一点"><meta name="keywords" content="Blog,博客,Hexo"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a class="current" href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:220px;" alt="favicon"><h3 title=""><a href="/">藤原拓海</a></h3><div class="description"><p>等到放晴的那天也许我会比较好一点</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Lhcfl"><i class="fa fa-github"></i></a></li><li><a href="mailto:yourname@example.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://zhihu.com/people/jin-xin-4-68"><i class="fa fa-mortar-board"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 但故事最后你好像还是说了 拜 </span><i class="fa fa-star"></i><span> WHD</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/02/21/JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">JavaScript基础知识</a></h3></div><div class="post-content"><div class="card"><p><h3 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h3><h4 id="异步执行原理"><a href="#异步执行原理" class="headerlink" title="异步执行原理"></a>异步执行原理</h4><p>1）单线程的JavaScript</p>
+<p>​	JS是单线程语言，有同步和异步的概念</p>
+<p>2）多线程的浏览器</p>
+<p>​	浏览器是多线程的，当js需要执行异步任务的时候，浏览器会另外启动一个线程执行。</p>
+<h4 id="浏览器的事件循环"><a href="#浏览器的事件循环" class="headerlink" title="浏览器的事件循环"></a>浏览器的事件循环</h4><p>​	由于JS是单线程，为了防止一个函数执行事件过长阻塞后面的代码，所以会先将同步代码放入执行栈中先执行，异步代码放入任务队列中等待，任务队列又分为宏任务队列（<strong>setImmediate</strong>  <strong>setTimeout</strong>  <strong>setInterval</strong>），微任务队列（promise.then）,先执行微任务队列中的任务，等清空之后，弹出一个宏任务执行，然后检查微任务是否清空，反复上述操作，直至所有任务结束</p>
+<h4 id="Node环境中的事件循环"><a href="#Node环境中的事件循环" class="headerlink" title="Node环境中的事件循环"></a>Node环境中的事件循环</h4><p>​	<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e362c1770f62428fbf3faabd99d2a64c~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="2020120317343116.png"></p>
+<p>执行顺序</p>
+<p><code>timers</code>: 计时器，执行setTimeout和setInterval的回调</p>
+<p><code>pending callbacks</code>: 执行延迟到下一个循环迭代的 I&#x2F;O 回调</p>
+<p><code>idle, prepare</code>: 队列的移动，仅系统内部使用</p>
+<p><code>poll轮询</code>: 检索新的 I&#x2F;O 事件;执行与 I&#x2F;O 相关的回调。事实上除了其他几个阶段处理的事情，其他几乎所有的异步都在这个阶段处理。</p>
+<p><code>check</code>: 执行<code>setImmediate</code>回调，setImmediate在这里执行</p>
+<p><code>close callbacks</code>: 执行<code>close</code>事件的<code>callback</code>，一些关闭的回调函数，如：socket.on(‘close’, …)</p>
+<h3 id="数据去重的方法"><a href="#数据去重的方法" class="headerlink" title="数据去重的方法"></a>数据去重的方法</h3><ul>
+<li>使用SET</li>
+<li>遍历 使用splice删除</li>
+<li>indexof</li>
+</ul>
+<h3 id="JS中八种数据类型以及区别"><a href="#JS中八种数据类型以及区别" class="headerlink" title="JS中八种数据类型以及区别"></a>JS中八种数据类型以及区别</h3><ul>
+<li>基本类型（占固定大小，保存在栈内存中）<ul>
+<li>Number、String、Boolean、null、undefined、<strong>Symbol（符号）</strong></li>
+</ul>
+</li>
+<li>引用类型（地址保存在栈内存，值保存在堆内存中）<ul>
+<li>Object、Function</li>
+</ul>
+</li>
+</ul>
+<h3 id="JS中的数据类型检测的方法"><a href="#JS中的数据类型检测的方法" class="headerlink" title="JS中的数据类型检测的方法"></a>JS中的数据类型检测的方法</h3><ul>
+<li><code>typeof</code>: <ul>
+<li>用法 ： <code>typeof null</code>   return object</li>
+<li>优点：可以快速区分基本数据类型</li>
+<li>缺点：<strong>不能将Object、Array和Null区分</strong>，都返回object</li>
+</ul>
+</li>
+<li><code>instanceof</code><ul>
+<li>用法： <code>1 instanceof Number</code>  return false</li>
+<li>优点：可以区分Object、Array和Function，适合用于判断自定义的类实例对象</li>
+<li>缺点：Number、Boolean、String 不能判断</li>
+</ul>
+</li>
+<li><code>Object.prototype.toString.call()</code><ul>
+<li>万能</li>
+</ul>
+</li>
+</ul>
+<h3 id="var、-let、-const"><a href="#var、-let、-const" class="headerlink" title="var、 let、 const"></a>var、 let、 const</h3><ul>
+<li>三者区别<ul>
+<li>var可以<strong>先使用，再声明</strong>（变量提升），let 和 const 不行</li>
+<li>var 可以<strong>跨块使用</strong>（注意不是函数），let 和 const 不行，且const常用来声明常量，不可以更改</li>
+<li>var 可以重复声明同一个变量 例如 <code>var a = 1 ; var a = 2</code>,let 和const 不行</li>
+<li>var 声明的全局变量 会映射（挂载）再全局对象上，通过<code>window.变量名</code>可以访问到，而用 let 和 const 声明的全局变量并没有在全局对象中，只是一个块级作用域（Script）中</li>
+<li>在使用let声明变量之前使用该变量，会产生<strong>暂时性死区</strong></li>
+<li>let &#x2F;const&#x2F;function会把当前所在的大括号(除函数之外)作为一个全新的块级上下文</li>
+</ul>
+</li>
+</ul>
+<h3 id="匿名函数和普通函数的区别"><a href="#匿名函数和普通函数的区别" class="headerlink" title="匿名函数和普通函数的区别"></a>匿名函数和普通函数的区别</h3><ul>
+<li>普通函数在定义时，就已经创建了 函数对象 和 作用域链对象，所以即使没有调用，也占用内存空间</li>
+<li><strong>匿名函数只在调用时才创建，调用完立即释放</strong>，所以比普通函数更节省内存空间<ul>
+<li>多用于 回调函数</li>
+</ul>
+</li>
+</ul>
+<h3 id="JS垃圾回收机制"><a href="#JS垃圾回收机制" class="headerlink" title="JS垃圾回收机制"></a>JS垃圾回收机制</h3><ul>
+<li><p>为什么要有垃圾回收机制</p>
+<ul>
+<li>在一个项目中，如果有大量不被释放的内存，页面性能就会变得很慢。同时，当某些代码操作不能被合理释放，就会造成内存泄漏。所以垃圾回收机制也称为内存回收机制</li>
+</ul>
+</li>
+<li><p>浏览器垃圾回收机制（GC）</p>
+<ul>
+<li>浏览器的JS具有自动垃圾回收机制，它会周期性检查那些不在继续使用的变量并释放</li>
+<li>具体方法<ul>
+<li><strong>标记清除：</strong>当变量进入环境，被标记为“进入环境”，离开时，被标记为“离开环境”，垃圾回收器会释放带有标记的变量空间</li>
+<li><strong>谷歌浏览器：****查找引用</strong>，不定时的检查当前内存的引用，如果其没被占用，则回收</li>
+<li><strong>IE浏览器：****引用计数法</strong>，当前内存被占用时计数加一，释放计数减一，到0时，回收</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>优化手段：内存优化 ; 手动释放：取消内存的占用即可。</p>
+<p>（1）堆内存：fn &#x3D; null 【null：空指针对象】</p>
+<p>（2）栈内存：把上下文中，被外部占用的堆的占用取消即可。</p>
+</li>
+<li><p>内存泄漏</p>
+</li>
+</ul>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><ul>
+<li><p>什么是闭包</p>
+<p>有权访问另一个函数作用域中的变量的函数，一般实现是在一个函数中包含另一个函数。拥有保存和保护的作用</p>
+</li>
+<li><p>保存：如果外界将闭包的返回接收，则闭包内的数据不会被回收，会一直被保存在内存中，直到手动释放。如果被接收，则使用完毕会自动释放。（可能引起<strong>内存泄漏</strong>）</p>
+</li>
+<li><p>保护：体现在函数外部的操作无法影响到内部的数据，可以设置私有的方法和变量，避免全局变量的污染。</p>
+</li>
+<li><p>应用场景：事件绑定的回调方法；setTinmeout延时回调</p>
+</li>
+</ul>
+<h3 id="访问对象的属性"><a href="#访问对象的属性" class="headerlink" title="访问对象的属性"></a>访问对象的属性</h3><p>两种方式：“.”  和 “[]”</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> object = &#123;<span class="attr">name</span>:<span class="string">&#x27;xiaoming&#x27;</span>,<span class="attr">age</span>:<span class="number">29</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> name1 = object.<span class="property">name</span>;</span><br><span class="line"><span class="keyword">var</span> name2 = object[<span class="string">&#x27;name&#x27;</span>];</span><br></pre></td></tr></table></figure>
+
+<h3 id="JS循环遍历数组（对象）的方法"><a href="#JS循环遍历数组（对象）的方法" class="headerlink" title="JS循环遍历数组（对象）的方法"></a>JS循环遍历数组（对象）的方法</h3><ul>
+<li><p><code>for(let index in ...) </code></p>
+<ul>
+<li>不推荐迭代数组<ul>
+<li><strong>遍历的属性值是字符串</strong></li>
+<li><strong>遍历顺序是对象属性的枚举顺序，并不一定按数组的下标顺序遍历</strong></li>
+</ul>
+</li>
+<li>多用于检查对象属性<ul>
+<li><strong>遍历的对象的话，会将对象所有自身属性以及原型链上的属性都遍历出来</strong></li>
+</ul>
+</li>
+<li></li>
+</ul>
+</li>
+<li><h2 id="for-const-item-of"><a href="#for-const-item-of" class="headerlink" title="for(const item of ...)"></a><code>for(const item of ...)</code></h2></li>
+<li><p><code>arr.forEach((value, index, arr2) =&gt; &#123;&#125;)</code></p>
+<ul>
+<li>不能使用continue，break</li>
+<li>其中，arr和arr2 指向同一块地址</li>
+<li>value 只是值引用</li>
+</ul>
+</li>
+<li><p><code>for循环</code></p>
+</li>
+<li><p><code>arr.every((value, index, arr2) =&gt; &#123;&#125;)</code></p>
+<ul>
+<li>该方法测试一个数组内的所有元素是否都能通过某个指定函数的测试。</li>
+<li>返回值为boolean，默认是false</li>
+</ul>
+</li>
+<li><p><code>arr.some(callback(element[, index[, array]])[, thisArg])</code></p>
+<ul>
+<li>只要数组中存在某一个符合条件的就返回<code>true</code></li>
+</ul>
+</li>
+<li><p>filter()方法</p>
+</li>
+<li><p><code>arr.map((value) =&gt; &#123;&#125;)</code></p>
+<ul>
+<li>对每一个数组元素应用函数，并返回一个新的数组</li>
+</ul>
+</li>
+<li><p>reduce()</p>
+</li>
+</ul>
+<h3 id="this的五种情况"><a href="#this的五种情况" class="headerlink" title="this的五种情况"></a>this的五种情况</h3><ul>
+<li>普通函数的this</li>
+<li>对象方法的this</li>
+<li>构造器调用</li>
+</ul>
+<h3 id="JS中的call、apply、bind"><a href="#JS中的call、apply、bind" class="headerlink" title="JS中的call、apply、bind"></a>JS中的call、apply、bind</h3><ul>
+<li>bind是<strong>返回一个新函数</strong>，便于稍后回调；apply和call是<strong>立即调用</strong></li>
+<li>apply接收<strong>数组</strong>作为参数，call 一个一个接收</li>
+<li>bind<ul>
+<li><code>bind()</code>最简单的用法是创建一个函数，使这个函数不论怎么调用都有同样的this值。</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数提升-和-变量提升的优先级"><a href="#函数提升-和-变量提升的优先级" class="headerlink" title="函数提升 和 变量提升的优先级"></a>函数提升 和 变量提升的优先级</h3><ul>
+<li><strong>函数提升</strong> 在 <strong>变量提升</strong>之前</li>
+<li><strong>函数被提升的时候，声明和赋值都被提升</strong>，变量只提升声明步骤</li>
+</ul>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><h4 id="A-规范"><a href="#A-规范" class="headerlink" title="A+规范"></a>A+规范</h4><ul>
+<li><code>new Promise(executor)</code> 其中executor是执行器，new完一个promise对象对立即执行</li>
+<li>executor 接收两个参数 <code>executor(resolve, reject)</code><ul>
+<li>resolve – 将promise实例的状态从pending – &gt;  fulfilled</li>
+<li>reject – 将promise 实例的状态 从pending –&gt; rejected</li>
+<li>状态只能改变一次</li>
+<li>改变状态的同时可以修改 value 和 reason</li>
+</ul>
+</li>
+<li>每个promise实例中都要有一个then函数，<code>then(onFulfilled, onRejected)</code><ul>
+<li>接受两个参数（可选）</li>
+<li><code>onFulfilled</code>– 状态为fufilled时的回调函数</li>
+<li><code>onRejected</code>–状态为rejected的回调函数</li>
+</ul>
+</li>
+<li>可以使用订阅者-发布者模式处理异步executor</li>
+</ul>
+<h3 id="AJax-中-post-和-get的区别"><a href="#AJax-中-post-和-get的区别" class="headerlink" title="AJax 中 post 和 get的区别"></a>AJax 中 post 和 get的区别</h3><p>1、使用GET请求时，参数会在URL显示，Post不会</p>
+<p>2、使用GET请求<strong>发送数据量小</strong>，Post请求<strong>发送数据量大</strong></p>
+<p>3、get请求需要注意<strong>缓存问题</strong>（会被客户端的浏览器缓存起来）</p>
+<h3 id="JS继承的理解"><a href="#JS继承的理解" class="headerlink" title="JS继承的理解"></a>JS继承的理解</h3><p>​	继承的意思是当一个子类继承一个父类时，该子类将拥有父类的属性和方法，同时子类可以改写父类方法或属性，添加新的属性和方法，实现代码复用。</p>
+<h4 id="实现继承的方法"><a href="#实现继承的方法" class="headerlink" title="实现继承的方法"></a>实现继承的方法</h4><ul>
+<li>原型链继承</li>
+<li>构造函数继承</li>
+<li>组合继承</li>
+<li>原型式继承</li>
+</ul>
+<h3 id="原型-和-原型链"><a href="#原型-和-原型链" class="headerlink" title="原型 和 原型链"></a>原型 和 原型链</h3><ul>
+<li><p>原型</p>
+<ul>
+<li>原型分类两种，一种式隐式原型，一种是显式原型<ul>
+<li>隐式原型（<code>__proto__</code>）：对象自有属性，指向显示原型对象</li>
+<li>显示原型（prototype）：指向该对象的构造函数的原型对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>原型链</p>
+<p>个人理解就是由于隐式原型指向显示原型，所以对象可以通过这样一个关系向上一层一层查找属性和方法，从而使用到不属于自己的属性和方法。最上层的原型是Objet.prototype,指向null。</p>
+<ul>
+<li>判断是否是自身属性 — <code>hasOwnPropery</code></li>
+</ul>
+</li>
+<li><p>原型链继承方法</p>
+<ul>
+<li>先调用父类的构造方法 –call</li>
+<li>定义一个空函数，空函数的prototype指向父类的prototype</li>
+<li>子类的prototype指向该空函数的对象</li>
+<li>修改子类的构造方法</li>
+</ul>
+</li>
+</ul>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-02-21</span><span class="leancloud_visitors"></span><span>About 2457 words, 8 min 11 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/11/17/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/">解构赋值</a></h3></div><div class="post-content"><div class="card"><p><blockquote>
+<p>解构赋值是一种特殊语法，可以使数组或对象拆包至一系列变量</p>
+</blockquote>
+<h2 id="数组解构"><a href="#数组解构" class="headerlink" title="数组解构"></a>数组解构</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 解构赋值</span></span><br><span class="line"><span class="comment">// 设置 firstName = arr[0]</span></span><br><span class="line"><span class="comment">// 以及 surname = arr[1]</span></span><br><span class="line"><span class="keyword">let</span> [firstName, surname] = arr;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>注意点</strong><ul>
+<li>解构操作不影响原数组或对象</li>
+<li>可以使用逗号忽略原数组或对象中不想要的元素</li>
+<li>被结构对象可以是任何可迭代的对象</li>
+<li>被赋值的元素类型不限</li>
+<li>可以配合 <code>Object.entries(obj)</code> 方法一同使用</li>
+</ul>
+</li>
+</ul>
+<h3 id="页面生命周期：DOMContentLoaded，load，beforeunload，unload"><a href="#页面生命周期：DOMContentLoaded，load，beforeunload，unload" class="headerlink" title="页面生命周期：DOMContentLoaded，load，beforeunload，unload"></a>页面生命周期：DOMContentLoaded，load，beforeunload，unload</h3><p><strong>HTML 页面的生命周期包含三个重要事件</strong>：</p>
+<ul>
+<li><code>DOMContentLoaded</code> —— 浏览器已完全加载 HTML，并构建了 DOM 树，但像 <code>&lt;img&gt;</code> 和样式表之类的<strong>外部资源</strong>可能尚未加载完成。</li>
+<li><code>load</code> —— 浏览器不仅加载完成了 HTML，还加载完成了所有外部资源：图片，样式等。</li>
+<li><code>beforeunload/unload</code> —— 当用户正在离开页面时。</li>
+</ul>
+<p><strong>每个事件都是有用的</strong>：</p>
+<ul>
+<li><code>DOMContentLoaded</code> 事件 —— DOM 已经就绪，因此处理程序可以查找 DOM 节点，并初始化接口。</li>
+<li><code>load</code> 事件 —— 外部资源已加载完成，样式已被应用，图片大小也已知了。</li>
+<li><code>beforeunload</code> 事件 —— 用户正在离开：我们可以检查用户是否保存了更改，并询问他是否真的要离开。</li>
+<li><code>unload</code> 事件 —— 用户几乎已经离开了，但是我们仍然可以启动一些操作，例如发送统计数据。</li>
+</ul>
+<p><strong>页面生命周期事件：</strong></p>
+<ul>
+<li><p>当 DOM 准备就绪时，<code>document</code>上的<code>DOMContentLoaded</code>事件就会被触发。在这个阶段，我们可以将 JavaScript 应用于元素。</p>
+<ul>
+<li>诸如 <code>&lt;script&gt;...&lt;/script&gt;</code> 或 <code>&lt;script src=&quot;...&quot;&gt;&lt;/script&gt;</code> 之类的脚本会阻塞 <code>DOMContentLoaded</code>，浏览器将等待它们执行结束。</li>
+<li>图片和其他资源仍然可以继续被加载。</li>
+</ul>
+</li>
+<li><p>当页面和所有资源都加载完成时，<code>window</code> 上的 <code>load</code> 事件就会被触发。我们很少使用它，因为通常无需等待那么长时间。</p>
+</li>
+<li><p>当用户想要离开页面时，<code>window</code> 上的 <code>beforeunload</code> 事件就会被触发。如果我们取消这个事件，浏览器就会询问我们是否真的要离开（例如，我们有未保存的更改）。</p>
+</li>
+<li><p>当用户最终离开时，<code>window</code> 上的 <code>unload</code> 事件就会被触发。在处理程序中，我们只能执行不涉及延迟或询问用户的简单操作。正是由于这个限制，它很少被使用。我们可以使用 <code>navigator.sendBeacon</code> 来发送网络请求。</p>
+<p><code>document.readyState</code>是文档的当前状态，可以在<code>readystatechange</code>事件中跟踪状态更改：</p>
+<ul>
+<li><code>loading</code> —— 文档正在被加载。</li>
+<li><code>interactive</code> —— 文档已被解析完成，与 <code>DOMContentLoaded</code> 几乎同时发生，但是在 <code>DOMContentLoaded</code> 之前发生。</li>
+<li><code>complete</code> —— 文档和资源均已加载完成，与 <code>window.onload</code> 几乎同时发生，但是在 <code>window.onload</code> 之前发生。</li>
+</ul>
+</li>
+</ul>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-11-17</span><i class="fa fa-tag"></i><a class="tag" href="/tags/计算机知识杂烩/" title="计算机知识杂烩">计算机知识杂烩 </a><span class="leancloud_visitors"></span><span>About 803 words, 2 min 40 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/11/17/Vue-%E4%BE%A6%E5%90%AC%E5%99%A8%E5%92%8C%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7/">Vue-侦听器和计算属性</a></h3></div><div class="post-content"><div class="card"><p><h2 id="侦听器-监听器-watch"><a href="#侦听器-监听器-watch" class="headerlink" title="侦听器(监听器 watch)"></a>侦听器(监听器 watch)</h2><blockquote>
 <p>watch 侦听器允许开发者监视数据的变化，从而针对数据的变化做特定的操作</p>
 </blockquote>
 <ul>
@@ -434,246 +700,4 @@
 </ul>
 </li>
 </ul>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-11-12</span><i class="fa fa-tag"></i><a class="tag" href="/tags/webpack/" title="webpack">webpack </a><span class="leancloud_visitors"></span><span>About 258 words, 51 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/10/30/Git/">Git</a></h3></div><div class="post-content"><div class="card"><p><h2 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h2><h3 id="起步"><a href="#起步" class="headerlink" title="起步"></a><font color=Red>起步</font></h3><ul>
-<li><p><strong><font color=Blue>关于版本控制</font></strong></p>
-<ul>
-<li><strong>文件的版本</strong><ul>
-<li>使用文件名区分版本<ul>
-<li>缺点：操作麻烦、命名不规范、容易丢失、协作困难</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>版本控制软件</strong><ul>
-<li>概念：版本控制软件是一个用来记录文件变化，以便于将来查阅特定版本修订的情况，因此有时也叫做”版本控制系统“。</li>
-<li>通俗的理解：<strong>把手工管理文件版本的方式，改为由软件管理文件的版本</strong>，负责管理文件版本的软件，叫做”版本控制软件“。</li>
-</ul>
-</li>
-<li><strong>使用版本控制软件的好处</strong><ul>
-<li><strong>操作简便：</strong>只用识记几组简单的终端命令</li>
-<li><strong>便于对比</strong>：基于版本控制软件提供的功能，能够方便地比较文件的变化细节，从而查找出导致问题的原因</li>
-<li><strong>易于回溯</strong>：可以将选定的文件回溯到之前的状态，甚至将整个项目都会退到过去某个时间点的状态</li>
-<li><strong>不易丢失</strong>：再版本控制软件中，被用户误删除的文件可以轻松回复回来</li>
-<li><strong>协作方便</strong>：基于版本控制软件提供的分支功能，可以轻松实现多人协作开发时的代码合作操作</li>
-</ul>
-</li>
-<li><strong>版本控制系统的分类</strong><ul>
-<li>本地版本控制系统</li>
-<li>集中化的版本控制系统</li>
-<li><strong>分布式的版本控制系统</strong></li>
-</ul>
-</li>
-<li><strong>分布式的版本控制系统</strong><ul>
-<li>特点：基于服务器、客户端的运行模式<ul>
-<li>服务器保存文件的所有更新版本</li>
-<li>客户端是服务器的完整备份，并不是只保留文件的最新版本</li>
-</ul>
-</li>
-<li>优点<ul>
-<li>联网运行，智齿多人协作开发</li>
-<li>客户端断网后支持离线本地提交版本更新</li>
-<li>服务器故障或损坏后，可使用任何一个客户端的备份进行恢复</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a><font color=Red>Git</font></h3><p>Git是一个开源的分布式版本控制系统，是目前世界上最先进、最流行的版本控制系。可以快速高效地处理从很小到非常大的项目版本管理</p>
-<p>特点：项目越大越复杂，协同开发者越多，越能体现出Git的高性能和高可用性</p>
-<ul>
-<li><p><strong><font color=Blue>两个特性</font></strong></p>
-<ul>
-<li>直接记录快照，而非差异比较<ul>
-<li><img src="https://git-scm.com/book/en/v2/images/deltas.png" alt="存储每个文件与初始版本的差异。"></li>
-<li>Git快照是在原有文件版本的基础上重新生成一份新的文件，类似于备份。如果文件没有修改，Git不再重新存储该文件，二十只保留一个链接指向之前存储的文件</li>
-<li><img src="https://git-scm.com/book/en/v2/images/snapshots.png" alt="Git 存储项目随时间改变的快照。"></li>
-<li>缺点：占用磁盘空间较大</li>
-<li>优点：版本切换时非常快，因为每个版本都是完整的文件快照，切换版本时直接恢复目标版本的快照即可 （空间换时间）</li>
-</ul>
-</li>
-<li>近乎所有操作都是本地执行<ul>
-<li>断网后依旧可以在本地对项目进行版本管理</li>
-<li>联网后，把本地修改的记录同步到云端服务器即可</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong><font color=Blue>SVN和Git的差异比较（集中化与分布式版本控制系统的差异）</font></strong></p>
-<table>
-<thead>
-<tr>
-<th>差异</th>
-<th align="left">SVN</th>
-<th align="center">Git</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>系统特点</td>
-<td align="left">1. <strong>集中式版本控制系统</strong>，文档管理很方便。 2. 企业内部并行集中开发 3. <code>windows</code>系统上开发推荐使用 4. 克隆一个拥有将近一万个提交<code>commit</code>，五个分支，每个分支有大约<code>1500</code>个文件，用时将近一个小时</td>
-<td align="center">1. <strong>分布式系统</strong>，代码管理很方便。 2. 开源项目开发。 3. <code>Mac</code>、<code>Linux</code>系统上开发推荐使用。 4. 克隆一个拥有将近一万个提交<code>commit</code>、五个分支、每个分支有大约<code>1500</code>个文件，用时<code>1</code>分钟。</td>
-</tr>
-<tr>
-<td>灵活性</td>
-<td align="left">1. 搭载<code>SVN</code>的服务器<strong>如果出现故障，就无法与之交互。</strong> 2. 所有的<code>SVN</code>操作都需要中央仓库交互，例如拉分支，看日志等。</td>
-<td align="center">1. 可以<strong>单机操作</strong>，<code>Git</code>服务器故障也可以在本地<code>Git</code>仓库工作。 2. 除了<code>push</code>和<code>pull</code>或<code>fetch</code>操作，其他都可以在本地操作。 3. 根据自己开发任务任意在本地创建分支。 4. <strong>日志都是在本地查看，效率较高。</strong></td>
-</tr>
-<tr>
-<td>安全性</td>
-<td align="left">较差，定期备份，并且是整个<code>SVN</code>都得备份。</td>
-<td align="center">较高，每个开发者的<strong>本地就是一套完整版本库</strong>，记录着版本库的所有信息。</td>
-</tr>
-<tr>
-<td>分支方面</td>
-<td align="left">1. 拉分支更像是<code>copy</code>一个路径。 2. 可针对任何子目录进行<code>branch</code>。 3. 拉分支的时间较慢，因为拉分支相当于<code>copy</code>。 4.创建完分支后，影响全部成员，每个人都会拥有这个分支。 5.多分支并行开发较重，工作较多而且繁琐。</td>
-<td align="center">1. 我可以在<code>Git</code>的任意一个提交点<code>commit point</code>开启分支。 2. 拉分支时间较快，因为拉分支只是创建文件的指针和<code>HEAD</code>。 3. 自己本地创建的分支不会影响其他人。 4. 比较适合多分支并行开发。 5. <code>Git checkout hash</code>切回之前的版本，无需版本回退。 6. 强大的<code>cherry-pick</code>。</td>
-</tr>
-<tr>
-<td>工作流程</td>
-<td align="left">1. 每次更改文件之前都得<code>update</code>操作，有的时候修改过程中这个文件有更新，<code>commit</code>不会成功。 2. 有冲突，会打断提交动作，冲突解决是一个提交速度的竞赛：手快者，先提交，平安无事；手慢者，后提交，可能遇到麻烦的冲突解决。</td>
-<td align="center">1. 开始工作前进行<code>fetch</code>操作，完成开发工作后<code>push</code>操作，有冲突解决冲突。 2. <code>Git</code>的提交过程不会被打断，有冲突会标记冲突文件。 3. <code>Gitflow</code>经典流程。</td>
-</tr>
-<tr>
-<td>内容管理</td>
-<td align="left"><code>SVN</code>对中文支持好，操作简单。</td>
-<td align="center">对程序的源代码管理方便，代码库占用的空间少，易于分支化管理。</td>
-</tr>
-<tr>
-<td>学习成本</td>
-<td align="left">使用起来更方便，<code>SVN</code>对中文支持好，操作简单。</td>
-<td align="center">更在乎效率而不是易用性，成本较高，有很多独有的命令如<code>rebase</code>、远程仓库交互的命令等等。</td>
-</tr>
-<tr>
-<td>权限管理</td>
-<td align="left"><code>SVN</code>的权限管理相当严格，可以按组、个人针对某个子目录的权限控制，每个目录下都会有个<code>.SVN</code>的隐藏文件。</td>
-<td align="center"><code>Git</code>没有严格的权限管理控制，只有账号角色划分。</td>
-</tr>
-<tr>
-<td>管理平台</td>
-<td align="left">有功能非常完善的插件。</td>
-<td align="center">除功能插件外，还有<code>Gitlab</code>、<code>Gerrit</code>、<code>Github</code>等。</td>
-</tr>
-</tbody></table>
-</li>
-<li><p><strong><font color=Blue>Git中三个区域：工作区、暂存区、Git仓库</font></strong></p>
-<ul>
-<li><img src="https://git-scm.com/book/en/v2/images/areas.png" alt="工作区、暂存区以及 Git 目录。"></li>
-<li>工作区中文件的四种状态<ul>
-<li>未被Git管理：未跟踪</li>
-<li>已被Git管理：未修改，已修改，已暂存</li>
-<li>Git操作的终极结果：让工作区的文件都处于’‘未修改’‘</li>
-<li><img src="https://img-blog.csdnimg.cn/5df5c8bcf9d14e7a825965b861f133de.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6LaF57qn56eN56CB,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong><font color=Blue>Git中三个状态：已修改（modified）、已暂存（staged）、已提交（committed）</font></strong></p>
-<ul>
-<li>工作区的文件被修改了，但是还没有放到暂存区，就说已修改的状态</li>
-<li>如果文件已修改并放入暂存区，就属于已暂存状态</li>
-<li>如果Git仓库中保存着特定版本的文件，就属于已提交状态</li>
-</ul>
-</li>
-<li><p><strong><font color=Blue>基本的Git工作流程</font></strong></p>
-<ul>
-<li>在工作区中修改文件</li>
-<li>将想要下次提交的更改进行暂存</li>
-<li>提交更新，找到暂存区的文件，将快照永久存储到Git仓库</li>
-</ul>
-</li>
-<li><p><strong><font color=Blue>配置用户信息</font></strong></p>
-<ul>
-<li>&#96;&#96;&#96;javascript<br>&#x2F;&#x2F; 设置用户名和邮件地址<br>git config –global user,name “用户名”<br>git config –global user,email “用户邮箱”<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 注意：如果使用了--global选项，那么该命令只需要运行一次，即可永久生效</span><br><span class="line"></span><br><span class="line">- **&lt;font color=Blue&gt;Git的全局配置文件&lt;/font&gt;**</span><br><span class="line"></span><br><span class="line">  - 使用--global 命令的信息会被写入到**C:/user/用户名文件夹/.gitconfig**文件中，这个文件是Git的全局配置文件，可以使用记事本打开此文件，查看对Git做过的全局性配置</span><br><span class="line"></span><br><span class="line">- **&lt;font color=Blue&gt;检查配置信息&lt;/font&gt;**</span><br><span class="line"></span><br><span class="line">  - 除了查看全局配置文件之外，还可以使用如下的终端命令，快速查看Git的全局配置信息</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    // 查看所有的全局配置项</span><br><span class="line">    git config --list -- global</span><br><span class="line">    </span><br><span class="line">    // 查看指定的全局配置项</span><br><span class="line">    git config user.name</span><br><span class="line">    git config user.email</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p><strong><font color=Blue>获取帮助手册</font></strong></p>
-<ul>
-<li>&#96;&#96;&#96;javascript<br>git help config<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **&lt;font color=Blue&gt;获取Git仓库的两种方式&lt;/font&gt;**</span><br><span class="line"></span><br><span class="line">  - 将尚未进行版本控制的**本地目录转换为Git仓库**</span><br><span class="line">    - 1、打开”Git Bash“</span><br><span class="line">    - 2、执行git init 命令将当前目录转化为Git仓库</span><br><span class="line">      - git init 命令会创建一个名为.git的隐藏目录，这个.git目录就是当前项目的Git仓库，里面包含了初始的必要文件，这些文件是Git仓库的必要组成部分</span><br><span class="line">  - 从其他服务器**克隆**一个已存在的Git仓库</span><br><span class="line"></span><br><span class="line">- **&lt;font color=Blue&gt;检查文件的状态&lt;/font&gt;**</span><br><span class="line"></span><br><span class="line">  - 可以使用 **git status** 命令查看文件处于什么状态</span><br><span class="line"></span><br><span class="line">- **&lt;font color=Blue&gt;检查已经加入本地Git仓库的文件&lt;/font&gt;**</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    git ls-files</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p><strong><font color=Blue>以精简的方式显示文件状态</font></strong></p>
-<ul>
-<li><pre><code class="javascript">git status -s
-git status --short
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 未跟踪文件前面有红色**&lt;font color=Red&gt;？？&lt;/font&gt;**标记</span><br><span class="line"></span><br><span class="line">  - 绿色的**&lt;font color=Green&gt;A&lt;/font&gt;** 表示新添加到暂存区的文件</span><br><span class="line"></span><br><span class="line">  - 红色的**&lt;font color=Red&gt;M&lt;/font&gt;**表示修改过但**没有放入暂存区**的文件</span><br><span class="line"></span><br><span class="line">  - 绿色的**&lt;font color=Green&gt;M&lt;/font&gt;**表示暂存区中修改过的文件</span><br><span class="line"></span><br><span class="line">- **&lt;font color=Blue&gt;跟踪新文件&lt;/font&gt;**</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    git add 文件名</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-<li><p>可以开始<strong>跟踪新文件</strong></p>
-</li>
-<li><p>把<strong>已跟踪的、且已修改的</strong>文件放到暂存区</p>
-</li>
-<li><p>把有冲突的文件标记为已解决状态</p>
-</li>
-</ul>
-</li>
-<li><p><strong><font color=Blue>提交更新</font></strong></p>
-<ul>
-<li>&#96;&#96;&#96;javascript<br>git commit -m “本次提交消息，用来对提交的内容做进一步的描述”<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **&lt;font color=Blue&gt;对已提交的文件进行修改&lt;/font&gt;**</span><br><span class="line"></span><br><span class="line">  - 当文件已被Git跟踪，并且工作区和Git仓库中的文件内容一致。此时修改文件，**再次运行 git status**命令查看状态，会出现**Changes not staged for commit** ，表示已跟踪状态的文件发生了变化，但是还没有放到暂存区，当前该文件状态为 modified</span><br><span class="line"></span><br><span class="line">- **&lt;font color=Blue&gt;暂存已修改的文件&lt;/font&gt;**</span><br><span class="line"></span><br><span class="line">  - 再次运行 git add</span><br><span class="line"></span><br><span class="line">- **&lt;font color=Blue&gt;提交已暂存的文件&lt;/font&gt;**</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    git commit -m &quot;修改了XX文件的内容&quot;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p><strong><font color=Blue>撤销对文件的修改</font></strong></p>
-<ul>
-<li><p>撤销对文件的修改指的是对工作区中对应文件的修改，还原成Git仓库中所保存的版本</p>
-</li>
-<li><p>结果：所有的修改丢失，且无法恢复</p>
-</li>
-<li><p>&#96;&#96;&#96;javascript<br>git checkout –文件名</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 撤销操作的本质：用Git仓库中保存的文件，覆盖工作区中指定的文件</span><br><span class="line"></span><br><span class="line">- **&lt;font color=Blue&gt;向暂存区中一次性添加多个文件&lt;/font&gt;**</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    git add .</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p><strong><font color=Blue>取消暂存的文件</font></strong></p>
-<ul>
-<li>&#96;&#96;&#96;javascript<br>git reset HEAD 要移除文件的名称<br>git reset HEAD . &#x2F;&#x2F; 移出所有文件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **&lt;font color=Blue&gt;跳过使用暂存区&lt;/font&gt;**</span><br><span class="line"></span><br><span class="line">  - Git的标准工作流程是**工作区-&gt;暂存区-&gt;Git仓库**，可以使用指令跳过暂存区，使其**工作区-&gt;Git仓库**</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    git commit -a -m &quot;描述信息&quot;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p><strong><font color=Blue>从Git仓库移出文件</font></strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从Git仓库和工作区中同时移出文件</span></span><br><span class="line">git rm -f 文件名</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只从Git仓库中移出文件，但保留工作区中的文件</span></span><br><span class="line">git rm --cache 文件名</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong><font color=Blue>忽略文件</font></strong></p>
-<ul>
-<li><p>一些不希望总出现在未跟踪文件列表中的文件，可以创建一个.gitgnore的配置文件，列出要忽视的文件的匹配模式</p>
-</li>
-<li><p>.gitignore的格式规范如下：</p>
-<ul>
-<li>以 # 开头是注释</li>
-<li>以 &#x2F; 结尾是目录</li>
-<li>以 &#x2F; 开头防止递归</li>
-<li>以 ！开头表示取反</li>
-<li>可以使用glob模式进行文件和文件夹的匹配（glob指简化了的正则表达式）</li>
-</ul>
-</li>
-<li><p>&#96;&#96;&#96;javascript<br>&#x2F;&#x2F; 忽略所有 .a 结尾的文件<br>*.a</p>
-<p>&#x2F;&#x2F; 但跟踪所有的 lib.a 即使前面忽视了.a文件<br>!lib.a</p>
-<p>&#x2F;&#x2F;只忽略当前目录下的TODO文件，不忽略subdir&#x2F;TODO<br>&#x2F;TODO</p>
-<p>&#x2F;&#x2F;忽略任何目录下名为build的文件夹<br>build&#x2F;</p>
-<p>&#x2F;&#x2F; 忽略doc&#x2F;notes.tet, 但不忽略doc&#x2F;server&#x2F;aech.txt<br>doc&#x2F;*.txt</p>
-<p>&#x2F;&#x2F; 忽略doc&#x2F; 目录及其所有子目录下的 .pdf文件<br>doc&#x2F;**&#x2F;*.pdf</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **&lt;font color=Blue&gt;查看提交历史&lt;/font&gt;**</span><br><span class="line"></span><br><span class="line">  - ```javascript</span><br><span class="line">    按时间先后顺序列出</span><br><span class="line">    git log</span><br><span class="line">    </span><br><span class="line">    只展示最新两条提交历史</span><br><span class="line">    git log -2</span><br><span class="line">    </span><br><span class="line">    在一行上展示最近两条提交历史的信息</span><br><span class="line">    git log -2 --pretty=oneline</span><br><span class="line">    </span><br><span class="line">    在一行上展示最近两条提交历史，并自定义输出的格式</span><br><span class="line">    %h -- 提交的简写哈希值 </span><br><span class="line">    %an -- 作者名字</span><br><span class="line">    %ar -- 作者修订日期</span><br><span class="line">    %s -- 提交说明</span><br><span class="line">    git log -2 --pretty=format:&quot;%h | %an | %ar | %s&quot;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p><strong><font color=Blue>跳转到指定版本</font></strong></p>
-<ul>
-<li><pre><code class="javascript">在一行上展示最近两条提交历史的信息
-git log --pretty=oneline
-
-根据ID跳转到指定版本
-git reset --hard &lt;CommitID&gt;
-
-在旧版本中使用
-git relog --pretty=oneline
-
-根据ID跳转到指定版本
-git reset --hard &lt;CommitID&gt;
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-10-30</span><i class="fa fa-tag"></i><a class="tag" href="/tags/Git/" title="Git">Git </a><span class="leancloud_visitors"></span><span>About 3543 words, 11 min 48 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/10/28/%E3%80%90Leedcode%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93%E3%80%91-56-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/">【Leedcode题目总结】-56-合并区间</a></h3></div><div class="post-content"><div class="card"><p><p><strong>以数组 <code>intervals</code> 表示若干个区间的集合，其中单个区间为 <code>intervals[i] = [starti, endi]</code> 。请你合并所有重叠的区间，并返回 <em>一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间</em> 。</strong></p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：intervals = [[1,3],[2,6],[8,10],[15,18]]</span><br><span class="line">输出：[[1,6],[8,10],[15,18]]</span><br><span class="line">解释：区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[][]</span>&#125; <span class="variable">intervals</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number[][]</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> merge = <span class="keyword">function</span>(<span class="params">intervals</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(intervals.<span class="property">length</span> === <span class="number">1</span>) <span class="keyword">return</span> intervals;</span><br><span class="line">    <span class="comment">//按照第一个数字大小进行排序</span></span><br><span class="line">    intervals.<span class="title function_">sort</span>(<span class="keyword">function</span>(<span class="params">arr1, arr2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> arr1[<span class="number">0</span>] - arr2[<span class="number">0</span>];</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">var</span> resArr = []; <span class="comment">// 保留答案</span></span><br><span class="line">    <span class="keyword">var</span> curArr = intervals[<span class="number">0</span>]; <span class="comment">// 指向当前需要比较的区间</span></span><br><span class="line">    intervals.<span class="title function_">push</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; intervals.<span class="property">length</span> ; i++) &#123;</span><br><span class="line">        <span class="comment">// 如果当前区间末尾 大于 下一区间的开头 进行合并 </span></span><br><span class="line">        <span class="comment">//  循环至不满足条件</span></span><br><span class="line">        <span class="keyword">while</span>(intervals[i] !== <span class="number">0</span> &amp;&amp; curArr[<span class="number">1</span>] &gt;= intervals[i][<span class="number">0</span>]) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = [curArr[<span class="number">0</span>], curArr[<span class="number">1</span>] &gt; intervals[i][<span class="number">1</span>] ? curArr[<span class="number">1</span>] : intervals[i][<span class="number">1</span>]];</span><br><span class="line">            curArr = temp;</span><br><span class="line">            i++;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="comment">// 将最终循环结果存入res，如果没有经过循环，说明不需要合并，直接存入</span></span><br><span class="line">        resArr.<span class="title function_">push</span>(curArr);</span><br><span class="line">        <span class="comment">// 由于循环最后会指向第一个不满足循环条件的区间，所以更新当前区间</span></span><br><span class="line">        curArr = intervals[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> resArr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-10-28</span><i class="fa fa-tag"></i><a class="tag" href="/tags/Leedcode/" title="Leedcode">Leedcode </a><span class="leancloud_visitors"></span><span>About 281 words, 56 sec  read</span></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/page/2/">Next</a></li></ul></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-11-12</span><i class="fa fa-tag"></i><a class="tag" href="/tags/webpack/" title="webpack">webpack </a><span class="leancloud_visitors"></span><span>About 258 words, 51 sec  read</span></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/page/2/">Next</a></li></ul></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>

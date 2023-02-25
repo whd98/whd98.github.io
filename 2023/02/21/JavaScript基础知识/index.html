@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="WHD"><title>JavaScript基础知识 · 藤原拓海</title><meta name="description" content="事件循环异步执行原理1）单线程的JavaScript
+​	JS是单线程语言，有同步和异步的概念
+2）多线程的浏览器
+​	浏览器是多线程的，当js需要执行异步任务的时候，浏览器会另外启动一个线程执行。
+浏览器的事件循环​	由于JS是单线程，为了防止一个函数执行事件过长阻塞后面的代码，所以会先将同步代码"><meta name="keywords" content="Blog,博客,Hexo"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/logo.webp"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo@2x.webp" style="width:220px;" alt="favicon"><h3 title=""><a href="/">藤原拓海</a></h3><div class="description"><p>等到放晴的那天也许我会比较好一点</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/Lhcfl"><i class="fa fa-github"></i></a></li><li><a href="mailto:yourname@example.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://zhihu.com/people/jin-xin-4-68"><i class="fa fa-mortar-board"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 但故事最后你好像还是说了 拜 </span><i class="fa fa-star"></i><span> WHD</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>JavaScript基础知识</a></h3></div><div class="post-content"><p><h3 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h3><h4 id="异步执行原理"><a href="#异步执行原理" class="headerlink" title="异步执行原理"></a>异步执行原理</h4><p>1）单线程的JavaScript</p>
+<p>​	JS是单线程语言，有同步和异步的概念</p>
+<p>2）多线程的浏览器</p>
+<p>​	浏览器是多线程的，当js需要执行异步任务的时候，浏览器会另外启动一个线程执行。</p>
+<h4 id="浏览器的事件循环"><a href="#浏览器的事件循环" class="headerlink" title="浏览器的事件循环"></a>浏览器的事件循环</h4><p>​	由于JS是单线程，为了防止一个函数执行事件过长阻塞后面的代码，所以会先将同步代码放入执行栈中先执行，异步代码放入任务队列中等待，任务队列又分为宏任务队列（<strong>setImmediate</strong>  <strong>setTimeout</strong>  <strong>setInterval</strong>），微任务队列（promise.then）,先执行微任务队列中的任务，等清空之后，弹出一个宏任务执行，然后检查微任务是否清空，反复上述操作，直至所有任务结束</p>
+<h4 id="Node环境中的事件循环"><a href="#Node环境中的事件循环" class="headerlink" title="Node环境中的事件循环"></a>Node环境中的事件循环</h4><p>​	<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e362c1770f62428fbf3faabd99d2a64c~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="2020120317343116.png"></p>
+<p>执行顺序</p>
+<p><code>timers</code>: 计时器，执行setTimeout和setInterval的回调</p>
+<p><code>pending callbacks</code>: 执行延迟到下一个循环迭代的 I&#x2F;O 回调</p>
+<p><code>idle, prepare</code>: 队列的移动，仅系统内部使用</p>
+<p><code>poll轮询</code>: 检索新的 I&#x2F;O 事件;执行与 I&#x2F;O 相关的回调。事实上除了其他几个阶段处理的事情，其他几乎所有的异步都在这个阶段处理。</p>
+<p><code>check</code>: 执行<code>setImmediate</code>回调，setImmediate在这里执行</p>
+<p><code>close callbacks</code>: 执行<code>close</code>事件的<code>callback</code>，一些关闭的回调函数，如：socket.on(‘close’, …)</p>
+<h3 id="数据去重的方法"><a href="#数据去重的方法" class="headerlink" title="数据去重的方法"></a>数据去重的方法</h3><ul>
+<li>使用SET</li>
+<li>遍历 使用splice删除</li>
+<li>indexof</li>
+</ul>
+<h3 id="JS中八种数据类型以及区别"><a href="#JS中八种数据类型以及区别" class="headerlink" title="JS中八种数据类型以及区别"></a>JS中八种数据类型以及区别</h3><ul>
+<li>基本类型（占固定大小，保存在栈内存中）<ul>
+<li>Number、String、Boolean、null、undefined、<strong>Symbol（符号）</strong></li>
+</ul>
+</li>
+<li>引用类型（地址保存在栈内存，值保存在堆内存中）<ul>
+<li>Object、Function</li>
+</ul>
+</li>
+</ul>
+<h3 id="JS中的数据类型检测的方法"><a href="#JS中的数据类型检测的方法" class="headerlink" title="JS中的数据类型检测的方法"></a>JS中的数据类型检测的方法</h3><ul>
+<li><code>typeof</code>: <ul>
+<li>用法 ： <code>typeof null</code>   return object</li>
+<li>优点：可以快速区分基本数据类型</li>
+<li>缺点：<strong>不能将Object、Array和Null区分</strong>，都返回object</li>
+</ul>
+</li>
+<li><code>instanceof</code><ul>
+<li>用法： <code>1 instanceof Number</code>  return false</li>
+<li>优点：可以区分Object、Array和Function，适合用于判断自定义的类实例对象</li>
+<li>缺点：Number、Boolean、String 不能判断</li>
+</ul>
+</li>
+<li><code>Object.prototype.toString.call()</code><ul>
+<li>万能</li>
+</ul>
+</li>
+</ul>
+<h3 id="var、-let、-const"><a href="#var、-let、-const" class="headerlink" title="var、 let、 const"></a>var、 let、 const</h3><ul>
+<li>三者区别<ul>
+<li>var可以<strong>先使用，再声明</strong>（变量提升），let 和 const 不行</li>
+<li>var 可以<strong>跨块使用</strong>（注意不是函数），let 和 const 不行，且const常用来声明常量，不可以更改</li>
+<li>var 可以重复声明同一个变量 例如 <code>var a = 1 ; var a = 2</code>,let 和const 不行</li>
+<li>var 声明的全局变量 会映射（挂载）再全局对象上，通过<code>window.变量名</code>可以访问到，而用 let 和 const 声明的全局变量并没有在全局对象中，只是一个块级作用域（Script）中</li>
+<li>在使用let声明变量之前使用该变量，会产生<strong>暂时性死区</strong></li>
+<li>let &#x2F;const&#x2F;function会把当前所在的大括号(除函数之外)作为一个全新的块级上下文</li>
+</ul>
+</li>
+</ul>
+<h3 id="匿名函数和普通函数的区别"><a href="#匿名函数和普通函数的区别" class="headerlink" title="匿名函数和普通函数的区别"></a>匿名函数和普通函数的区别</h3><ul>
+<li>普通函数在定义时，就已经创建了 函数对象 和 作用域链对象，所以即使没有调用，也占用内存空间</li>
+<li><strong>匿名函数只在调用时才创建，调用完立即释放</strong>，所以比普通函数更节省内存空间<ul>
+<li>多用于 回调函数</li>
+</ul>
+</li>
+</ul>
+<h3 id="JS垃圾回收机制"><a href="#JS垃圾回收机制" class="headerlink" title="JS垃圾回收机制"></a>JS垃圾回收机制</h3><ul>
+<li><p>为什么要有垃圾回收机制</p>
+<ul>
+<li>在一个项目中，如果有大量不被释放的内存，页面性能就会变得很慢。同时，当某些代码操作不能被合理释放，就会造成内存泄漏。所以垃圾回收机制也称为内存回收机制</li>
+</ul>
+</li>
+<li><p>浏览器垃圾回收机制（GC）</p>
+<ul>
+<li>浏览器的JS具有自动垃圾回收机制，它会周期性检查那些不在继续使用的变量并释放</li>
+<li>具体方法<ul>
+<li><strong>标记清除：</strong>当变量进入环境，被标记为“进入环境”，离开时，被标记为“离开环境”，垃圾回收器会释放带有标记的变量空间</li>
+<li><strong>谷歌浏览器：****查找引用</strong>，不定时的检查当前内存的引用，如果其没被占用，则回收</li>
+<li><strong>IE浏览器：****引用计数法</strong>，当前内存被占用时计数加一，释放计数减一，到0时，回收</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>优化手段：内存优化 ; 手动释放：取消内存的占用即可。</p>
+<p>（1）堆内存：fn &#x3D; null 【null：空指针对象】</p>
+<p>（2）栈内存：把上下文中，被外部占用的堆的占用取消即可。</p>
+</li>
+<li><p>内存泄漏</p>
+</li>
+</ul>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><ul>
+<li><p>什么是闭包</p>
+<p>有权访问另一个函数作用域中的变量的函数，一般实现是在一个函数中包含另一个函数。拥有保存和保护的作用</p>
+</li>
+<li><p>保存：如果外界将闭包的返回接收，则闭包内的数据不会被回收，会一直被保存在内存中，直到手动释放。如果被接收，则使用完毕会自动释放。（可能引起<strong>内存泄漏</strong>）</p>
+</li>
+<li><p>保护：体现在函数外部的操作无法影响到内部的数据，可以设置私有的方法和变量，避免全局变量的污染。</p>
+</li>
+<li><p>应用场景：事件绑定的回调方法；setTinmeout延时回调</p>
+</li>
+</ul>
+<h3 id="访问对象的属性"><a href="#访问对象的属性" class="headerlink" title="访问对象的属性"></a>访问对象的属性</h3><p>两种方式：“.”  和 “[]”</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> object = &#123;<span class="attr">name</span>:<span class="string">&#x27;xiaoming&#x27;</span>,<span class="attr">age</span>:<span class="number">29</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> name1 = object.<span class="property">name</span>;</span><br><span class="line"><span class="keyword">var</span> name2 = object[<span class="string">&#x27;name&#x27;</span>];</span><br></pre></td></tr></table></figure>
+
+<h3 id="JS循环遍历数组（对象）的方法"><a href="#JS循环遍历数组（对象）的方法" class="headerlink" title="JS循环遍历数组（对象）的方法"></a>JS循环遍历数组（对象）的方法</h3><ul>
+<li><p><code>for(let index in ...) </code></p>
+<ul>
+<li>不推荐迭代数组<ul>
+<li><strong>遍历的属性值是字符串</strong></li>
+<li><strong>遍历顺序是对象属性的枚举顺序，并不一定按数组的下标顺序遍历</strong></li>
+</ul>
+</li>
+<li>多用于检查对象属性<ul>
+<li><strong>遍历的对象的话，会将对象所有自身属性以及原型链上的属性都遍历出来</strong></li>
+</ul>
+</li>
+<li></li>
+</ul>
+</li>
+<li><h2 id="for-const-item-of"><a href="#for-const-item-of" class="headerlink" title="for(const item of ...)"></a><code>for(const item of ...)</code></h2></li>
+<li><p><code>arr.forEach((value, index, arr2) =&gt; &#123;&#125;)</code></p>
+<ul>
+<li>不能使用continue，break</li>
+<li>其中，arr和arr2 指向同一块地址</li>
+<li>value 只是值引用</li>
+</ul>
+</li>
+<li><p><code>for循环</code></p>
+</li>
+<li><p><code>arr.every((value, index, arr2) =&gt; &#123;&#125;)</code></p>
+<ul>
+<li>该方法测试一个数组内的所有元素是否都能通过某个指定函数的测试。</li>
+<li>返回值为boolean，默认是false</li>
+</ul>
+</li>
+<li><p><code>arr.some(callback(element[, index[, array]])[, thisArg])</code></p>
+<ul>
+<li>只要数组中存在某一个符合条件的就返回<code>true</code></li>
+</ul>
+</li>
+<li><p>filter()方法</p>
+</li>
+<li><p><code>arr.map((value) =&gt; &#123;&#125;)</code></p>
+<ul>
+<li>对每一个数组元素应用函数，并返回一个新的数组</li>
+</ul>
+</li>
+<li><p>reduce()</p>
+</li>
+</ul>
+<h3 id="this的五种情况"><a href="#this的五种情况" class="headerlink" title="this的五种情况"></a>this的五种情况</h3><ul>
+<li>普通函数的this</li>
+<li>对象方法的this</li>
+<li>构造器调用</li>
+</ul>
+<h3 id="JS中的call、apply、bind"><a href="#JS中的call、apply、bind" class="headerlink" title="JS中的call、apply、bind"></a>JS中的call、apply、bind</h3><ul>
+<li>bind是<strong>返回一个新函数</strong>，便于稍后回调；apply和call是<strong>立即调用</strong></li>
+<li>apply接收<strong>数组</strong>作为参数，call 一个一个接收</li>
+<li>bind<ul>
+<li><code>bind()</code>最简单的用法是创建一个函数，使这个函数不论怎么调用都有同样的this值。</li>
+</ul>
+</li>
+</ul>
+<h3 id="函数提升-和-变量提升的优先级"><a href="#函数提升-和-变量提升的优先级" class="headerlink" title="函数提升 和 变量提升的优先级"></a>函数提升 和 变量提升的优先级</h3><ul>
+<li><strong>函数提升</strong> 在 <strong>变量提升</strong>之前</li>
+<li><strong>函数被提升的时候，声明和赋值都被提升</strong>，变量只提升声明步骤</li>
+</ul>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><h4 id="A-规范"><a href="#A-规范" class="headerlink" title="A+规范"></a>A+规范</h4><ul>
+<li><code>new Promise(executor)</code> 其中executor是执行器，new完一个promise对象对立即执行</li>
+<li>executor 接收两个参数 <code>executor(resolve, reject)</code><ul>
+<li>resolve – 将promise实例的状态从pending – &gt;  fulfilled</li>
+<li>reject – 将promise 实例的状态 从pending –&gt; rejected</li>
+<li>状态只能改变一次</li>
+<li>改变状态的同时可以修改 value 和 reason</li>
+</ul>
+</li>
+<li>每个promise实例中都要有一个then函数，<code>then(onFulfilled, onRejected)</code><ul>
+<li>接受两个参数（可选）</li>
+<li><code>onFulfilled</code>– 状态为fufilled时的回调函数</li>
+<li><code>onRejected</code>–状态为rejected的回调函数</li>
+</ul>
+</li>
+<li>可以使用订阅者-发布者模式处理异步executor</li>
+</ul>
+<h3 id="AJax-中-post-和-get的区别"><a href="#AJax-中-post-和-get的区别" class="headerlink" title="AJax 中 post 和 get的区别"></a>AJax 中 post 和 get的区别</h3><p>1、使用GET请求时，参数会在URL显示，Post不会</p>
+<p>2、使用GET请求<strong>发送数据量小</strong>，Post请求<strong>发送数据量大</strong></p>
+<p>3、get请求需要注意<strong>缓存问题</strong>（会被客户端的浏览器缓存起来）</p>
+<h3 id="JS继承的理解"><a href="#JS继承的理解" class="headerlink" title="JS继承的理解"></a>JS继承的理解</h3><p>​	继承的意思是当一个子类继承一个父类时，该子类将拥有父类的属性和方法，同时子类可以改写父类方法或属性，添加新的属性和方法，实现代码复用。</p>
+<h4 id="实现继承的方法"><a href="#实现继承的方法" class="headerlink" title="实现继承的方法"></a>实现继承的方法</h4><ul>
+<li>原型链继承</li>
+<li>构造函数继承</li>
+<li>组合继承</li>
+<li>原型式继承</li>
+</ul>
+<h3 id="原型-和-原型链"><a href="#原型-和-原型链" class="headerlink" title="原型 和 原型链"></a>原型 和 原型链</h3><ul>
+<li><p>原型</p>
+<ul>
+<li>原型分类两种，一种式隐式原型，一种是显式原型<ul>
+<li>隐式原型（<code>__proto__</code>）：对象自有属性，指向显示原型对象</li>
+<li>显示原型（prototype）：指向该对象的构造函数的原型对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>原型链</p>
+<p>个人理解就是由于隐式原型指向显示原型，所以对象可以通过这样一个关系向上一层一层查找属性和方法，从而使用到不属于自己的属性和方法。最上层的原型是Objet.prototype,指向null。</p>
+<ul>
+<li>判断是否是自身属性 — <code>hasOwnPropery</code></li>
+</ul>
+</li>
+<li><p>原型链继承方法</p>
+<ul>
+<li>先调用父类的构造方法 –call</li>
+<li>定义一个空函数，空函数的prototype指向父类的prototype</li>
+<li>子类的prototype指向该空函数的对象</li>
+<li>修改子类的构造方法</li>
+</ul>
+</li>
+</ul>
+</p><div class="tip">本文采用CC-BY-SA-3.0协议，转载请注明出处<br>Author: WHD</div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-02-21</span><span class="leancloud_visitors"></span><span>About 2457 words, 8 min 11 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,http://example.com/2023/02/21/JavaScript基础知识/,藤原拓海,JavaScript基础知识,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2022/11/17/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/" title="解构赋值">Next</a></li></ul></div><script src="/js/visitors.js"></script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
